@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,72 +6,67 @@ using UnityEngine;
 public class Player_Move : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
-    public bool canMove = true;
+    public Controller_Move controller;
 
+    private Vector2 moveIput;
 
-    private Vector2 movement;
     private Animator animator;
-    private BoxCollider2D boxCollider2D;
-    private Rigidbody2D rigidbody;
+    private new Rigidbody2D rigidbody2D;
+    private bool isJump;
+    private bool canIsJump;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        animator = this.transform.GetComponent<Animator>();
-        boxCollider2D = this.transform.GetComponent<BoxCollider2D>();
-        rigidbody = this.transform.GetComponent<Rigidbody2D>();
+        moveIput.x = 0;
+        rigidbody2D = transform.GetComponent<Rigidbody2D>();
+        animator = transform.GetComponent<Animator>();
     }
 
-    void FixedUpdate()
-    {
-
-        rigidbody.MovePosition(rigidbody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-    }
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        moveIput.x = Math.Sign(Input.GetAxisRaw("Horizontal"));
+        animator.SetFloat("Speed", moveIput.sqrMagnitude);
 
-        Flip();
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
-    }
-
-    private void Flip()
-    {
-        if (CanMove())
+        if (controller.isGrounded)
         {
-            if (movement.x < -0.1f)
-            {
-                //spriteRenderer.flipX = false;
-                boxCollider2D.transform.localScale = new Vector3(1, 1, 1);
-            }
-            else if (movement.x > 0.1f)
-            {
-                //spriteRenderer.flipX = true;
-                boxCollider2D.transform.localScale = new Vector3(-1, 1, 1);
-            }
+            animator.SetBool("isJump", false);
+            animator.SetBool("isFall", false);
         }
-    }
-
-    private bool CanMove(bool? canMoveNow = null)
-    {
-        if (canMoveNow == null)
-            return canMove;
-        if ((bool)canMoveNow)
+        else if (rigidbody2D.velocity.y < 0.01f)
         {
-            canMove = true;
-            rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            animator.SetBool("isJump", false);
+            animator.SetBool("isFall", true);
+            canIsJump = false;
+        }
+        else if (rigidbody2D.velocity.y > 0.01f)
+        {
+            animator.SetBool("isJump", true);
+            animator.SetBool("isFall", false);
+        }
+
+        if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        {
+            canIsJump = true;
         }
         else
         {
-            canMove = false;
-            rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+
+            if (Input.GetButton("Jump") && canIsJump)
+            {
+                isJump = true;
+            }
+            else
+            {
+                isJump = false;
+            }
         }
-        return canMove;
+    }
+
+    void FixedUpdate()
+    {
+        controller.Move(moveIput.x, isJump);
     }
 }

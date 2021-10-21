@@ -160,7 +160,7 @@ TextureImporter:
       name: PlayerD_run_2
       rect:
         serializedVersion: 2
-        x: 325
+        x: 323
         y: 1
         width: 149
         height: 186
@@ -181,7 +181,7 @@ TextureImporter:
       name: PlayerD_run_3
       rect:
         serializedVersion: 2
-        x: 482
+        x: 481
         y: 0
         width: 158
         height: 190
@@ -202,7 +202,7 @@ TextureImporter:
       name: PlayerD_run_4
       rect:
         serializedVersion: 2
-        x: 648
+        x: 647
         y: 1
         width: 154
         height: 186
