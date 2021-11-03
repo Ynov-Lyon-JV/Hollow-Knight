@@ -51,6 +51,7 @@ public class Controller_Move : MonoBehaviour
             {
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpForce);
                 jumpTimeCompteur -= 1f;
+                SounfEffectsController.playSound("Audio/SoundEffects/SoundEffect_Jump");
             }
             else
             {
