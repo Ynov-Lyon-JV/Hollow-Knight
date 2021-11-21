@@ -15,6 +15,8 @@ public class Dico
         //BUTTON
         {"BUTTON_JUMP", "Button_Jump"},
         {"BUTTON_ATTACK", "Button_Attack"},
+        //SOUND
+        {"SOUND_PLAYER_JUMP", "Audio/SoundEffects/SoundEffect_Jump"},
     };
 
     public static string Get(string word)

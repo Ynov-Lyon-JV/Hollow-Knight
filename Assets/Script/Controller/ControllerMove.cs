@@ -87,7 +87,14 @@ public class ControllerMove : MonoBehaviour
             if (IsGrounded())
             {
                 jumpTimeCompteur = jumpTime;
-                SounfEffectsController.playSound("Audio/SoundEffects/SoundEffect_Jump");
+                if (mobMove)
+                {
+                    //Play son mob mobMove.SonJump();
+                }
+                else
+                {
+                    SounfEffectsController.playSound(Dico.Get("SOUND_PLAYER_JUMP"));
+                }
             }
             if (jumpTimeCompteur > 0f)
             {

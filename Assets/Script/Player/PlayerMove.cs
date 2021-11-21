@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private ControllerMove controllerMove;
+    private ControllerHealth controllerHealth;
     private ControllerAnimation controllerAnimation;
     private ControllerAnimation controllerAnimationAttack;
 
@@ -15,32 +16,19 @@ public class PlayerMove : MonoBehaviour
     private bool isJump;
     private bool canIsJump;
 
-    public Transform attackPos;
-    public LayerMask whatIsEnemies;
-    public float attackRangeX;
-    public float attackRangeY;
-    public int damage;
-
-    private float timeBtwAttack;
-    public float startTimeBtwAttack;
 
     private void Awake()
     {
-        InitAnimation();
         moveIput.x = 0;
         controllerMove = transform.GetComponent<ControllerMove>();
-        rigidbody2D = transform.GetComponent<Rigidbody2D>();
-    }
-    private void InitAnimation()
-    {
+        controllerHealth = transform.GetComponent<ControllerHealth>();
         controllerAnimation = transform.GetComponent<ControllerAnimation>();
         controllerAnimationAttack = transform.Find("Attack").GetComponent<ControllerAnimation>();
+        rigidbody2D = transform.GetComponent<Rigidbody2D>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rigidbody2D.velocity);    
         moveIput.x = Math.Sign(Input.GetAxisRaw("Horizontal"));
 
         if (controllerMove.IsGrounded())
@@ -82,22 +70,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (timeBtwAttack <= 0)
+        if (Input.GetButtonDown(Dico.Get("BUTTON_ATTACK")))
         {
-            if (Input.GetButtonDown(Dico.Get("BUTTON_ATTACK")))
+            if (controllerHealth.Attack())
             {
                 controllerAnimationAttack.AnimationPlay(Dico.Get("ANIM_PLAYER_ATTACK"));
-                Collider2D[] ennemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, whatIsEnemies);
-                for (int i = 0; i < ennemiesToDamage.Length; i++)
-                {
-                    ennemiesToDamage[i].GetComponent<ControllerHealth>().TakeDamage(damage);
-                }
-                timeBtwAttack = startTimeBtwAttack;
             }
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
         }
     }
 
@@ -106,12 +84,6 @@ public class PlayerMove : MonoBehaviour
         controllerMove.Move(moveIput.x, isJump);
     }
 
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(attackPos.position, new Vector3(attackRangeX, attackRangeY, 1));
-    }
 
 
 }
