@@ -77,7 +77,18 @@ public class ControllerHealth : MonoBehaviour
             Instantiate(bloodEffect, transform.position, Quaternion.identity);
             health -= damage;
             StartCoroutine(TakeDamageColor());
+            StartCoroutine(Knockback());
         }
+    }
+
+    IEnumerator Knockback()
+    {
+        controllerMove.canMove = false;
+        controllerMove.isKnockback = true;  
+        yield return new WaitForSeconds(0.15f);
+        controllerMove.isKnockback = false;
+        yield return new WaitForSeconds(0.15f);
+        controllerMove.canMove = true;
     }
 
     IEnumerator TakeDamageColor()

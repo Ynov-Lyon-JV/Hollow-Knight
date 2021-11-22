@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     private bool canIsJump;
 
 
+
     private void Awake()
     {
         moveIput.x = 0;
@@ -29,28 +30,9 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         moveIput.x = Math.Sign(Input.GetAxisRaw("Horizontal"));
 
-        if (controllerMove.IsGrounded())
-        {
-            if (moveIput.sqrMagnitude == 1)
-            {
-                controllerAnimation.ChangeAnimationState(Dico.Get("ANIM_PLAYER_RUN"));
-            }
-            else
-            {
-                controllerAnimation.ChangeAnimationState(Dico.Get("ANIM_PLAYER_IDLE"));
-            }
-        }
-        else if (rigidbody2D.velocity.y < 0.01f)
-        {
-            controllerAnimation.ChangeAnimationState(Dico.Get("ANIM_PLAYER_LAND"));
-            canIsJump = false;
-        }
-        else if (rigidbody2D.velocity.y > 0.01f)
-        {
-            controllerAnimation.ChangeAnimationState(Dico.Get("ANIM_PLAYER_JUMP"));
-        }
 
         if (Input.GetButtonDown(Dico.Get("BUTTON_JUMP")) && controllerMove.IsGrounded())
         {
@@ -72,11 +54,50 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetButtonDown(Dico.Get("BUTTON_ATTACK")))
         {
-            if (controllerHealth.Attack())
+            if (!controllerMove.isDash && controllerHealth.Attack())
             {
                 controllerAnimationAttack.AnimationPlay(Dico.Get("ANIM_PLAYER_ATTACK"));
             }
         }
+
+        if (Input.GetButtonDown(Dico.Get("BUTTON_DASH")))
+        {
+            controllerMove.Dash();
+        }
+
+        controllerAnimation.ChangeAnimationState(Dico.Get(GetAnimeState()));
+    }
+
+    private string GetAnimeState()
+    {
+        string animeState = "";
+
+
+        if (controllerMove.isDash)
+        {
+            animeState = "ANIM_PLAYER_DASH";
+        }
+        else if (controllerMove.IsGrounded())
+        {
+            if (moveIput.sqrMagnitude == 1)
+            {
+                animeState = "ANIM_PLAYER_RUN";
+            }
+            else
+            {
+                animeState = "ANIM_PLAYER_IDLE";
+            }
+        }
+        else if (rigidbody2D.velocity.y < 0.01f)
+        {
+            animeState = "ANIM_PLAYER_LAND";
+            canIsJump = false;
+        }
+        else if (rigidbody2D.velocity.y > 0.01f)
+        {
+            animeState = "ANIM_PLAYER_JUMP";
+        }
+        return animeState;
     }
 
     void FixedUpdate()

@@ -12,9 +12,11 @@ public class Dico
         {"ANIM_PLAYER_JUMP", "PlayerD_jump"},
         {"ANIM_PLAYER_LAND", "PlayerD_land"},
         {"ANIM_PLAYER_ATTACK", "PlayerD_attack"},
+        {"ANIM_PLAYER_DASH", "PlayerD_dash"},
         //BUTTON
         {"BUTTON_JUMP", "Button_Jump"},
         {"BUTTON_ATTACK", "Button_Attack"},
+        {"BUTTON_DASH", "Button_Dash"},
         //SOUND
         {"SOUND_PLAYER_JUMP", "Audio/SoundEffects/SoundEffect_Jump"},
     };

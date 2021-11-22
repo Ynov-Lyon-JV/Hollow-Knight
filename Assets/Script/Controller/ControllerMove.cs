@@ -30,13 +30,13 @@ public class ControllerMove : MonoBehaviour
     [Tooltip("Le temps de jump. De base: 15")]
     private float jumpTime;
 
-    private float jumpTimeCompteur;
+    private float jumpTimeCompteur = 0;
 
 
     [SerializeField]
     private Collider2D feetPos;
 
-    private Vector2 moveIput;
+    public Vector2 moveIput;
     private new Rigidbody2D rigidbody2D;
 
 
@@ -48,6 +48,13 @@ public class ControllerMove : MonoBehaviour
     private MobMove mobMove;
 
     public bool isGrounded;
+    public bool isKnockback = false;
+    public bool canMove = true;
+    public bool isDash = false;
+
+    [SerializeField]
+    private float startTimeBtwDash;
+    private float timeBtwDash = 0;
 
     public bool IsGrounded()
     {
@@ -58,7 +65,6 @@ public class ControllerMove : MonoBehaviour
     private void Awake()
     {
         speed = speedBase;
-        jumpTimeCompteur = 0;
         moveIput = new Vector2();
         feetPos = transform.GetComponent<Collider2D>();
         rigidbody2D = transform.GetComponent<Rigidbody2D>();
@@ -78,7 +84,15 @@ public class ControllerMove : MonoBehaviour
     }
     public void Move(float velocityX, bool isJump = false)
     {
-        moveIput.x = velocityX;
+        if (canMove)
+        {
+            moveIput.x = velocityX;
+        }
+        else
+        {
+            moveIput.x = 0;
+        }
+        moveIput.y++;
         rigidbody2D.velocity = new Vector2(moveIput.x * speed, rigidbody2D.velocity.y);
         Flip();
 
@@ -106,6 +120,17 @@ public class ControllerMove : MonoBehaviour
                 jumpTimeCompteur = 0f;
             }
         }
+        if (!mobMove && isKnockback)
+        {
+            isDash = false;
+            rigidbody2D.velocity = new Vector2(-direction * 30f, 15f);
+        }
+        if (!mobMove && isDash)
+        {
+            rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
+        }
+
+        timeBtwDash -= Time.deltaTime;
     }
 
     private void Flip()
@@ -121,5 +146,22 @@ public class ControllerMove : MonoBehaviour
         direction = -this.transform.localScale.x;
 
     }
+    public void Dash()
+    {
+        if (timeBtwDash <= 0)
+        {
+            StartCoroutine(CaroutineDash());
+        }
+    }
 
+    IEnumerator CaroutineDash()
+    {
+        timeBtwDash = startTimeBtwDash;
+        canMove = false;
+        isDash = true;
+        yield return new WaitForSeconds(0.3f);
+        isDash = false;
+        yield return new WaitForSeconds(0.1f);
+        canMove = true;
+    }
 }
