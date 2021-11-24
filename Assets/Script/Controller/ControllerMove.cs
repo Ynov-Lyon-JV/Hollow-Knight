@@ -107,7 +107,7 @@ public class ControllerMove : MonoBehaviour
                 }
                 else
                 {
-                    SounfEffectsController.playSound(Dico.Get("SOUND_PLAYER_JUMP"));
+                    SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_JUMP"));
                 }
             }
             if (jumpTimeCompteur > 0f)
