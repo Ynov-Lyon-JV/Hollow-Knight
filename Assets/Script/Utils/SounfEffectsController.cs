@@ -21,7 +21,7 @@ public class SounfEffectsController : MonoBehaviour
 
     public static void playSoundEffect(string soundName, float volume)
     {
-        soundToPlay = Resources.Load<AudioClip>("Audio/SoundEffects/"+soundName);
+        soundToPlay = Resources.Load<AudioClip>("Audio/SoundEffects/" + soundName);
         audioSource.PlayOneShot(soundToPlay, volume);
     }
 }

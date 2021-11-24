@@ -56,6 +56,8 @@ public class ControllerMove : MonoBehaviour
     private float startTimeBtwDash;
     private float timeBtwDash = 0;
 
+    private bool isGroundedLastFrame = false;
+
     public bool IsGrounded()
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.transform.position, checkRadius, whatisGround);
@@ -107,7 +109,8 @@ public class ControllerMove : MonoBehaviour
                 }
                 else
                 {
-                    SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_JUMP"));
+                    SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_JUMP"), 0.5F);
+                    ParticuleController.playParticleEffect("DustJumpParticles", this.transform);
                 }
             }
             if (jumpTimeCompteur > 0f)
@@ -129,6 +132,12 @@ public class ControllerMove : MonoBehaviour
         {
             rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
         }
+
+        if(!mobMove && IsGrounded() && !isGroundedLastFrame)
+		{
+            ParticuleController.playParticleEffect("DustLandParticles", this.transform);
+        }
+        isGroundedLastFrame = isGrounded;
 
         timeBtwDash -= Time.deltaTime;
     }
