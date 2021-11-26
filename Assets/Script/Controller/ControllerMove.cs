@@ -42,6 +42,7 @@ public class ControllerMove : MonoBehaviour
 
     [SerializeField]
     public float direction;
+    private float directionDamage;
     [NonSerialized]
     public bool directionLock;
 
@@ -123,12 +124,12 @@ public class ControllerMove : MonoBehaviour
                 jumpTimeCompteur = 0f;
             }
         }
-        if (!mobMove && isKnockback)
+        if (isKnockback)
         {
             isDash = false;
-            rigidbody2D.velocity = new Vector2(-direction * 30f, 15f);
+            rigidbody2D.velocity = new Vector2(directionDamage * 30f, 15f);
         }
-        if (!mobMove && isDash)
+        if (isDash)
         {
             rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
         }
@@ -171,6 +172,20 @@ public class ControllerMove : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         isDash = false;
         yield return new WaitForSeconds(0.1f);
+        canMove = true;
+    }
+    public void Knockback(float directionDamage)
+    {
+        this.directionDamage = directionDamage;
+        StartCoroutine(CaroutineKnockback());
+    }
+    IEnumerator CaroutineKnockback()
+    {
+        canMove = false;
+        isKnockback = true;
+        yield return new WaitForSeconds(0.15f);
+        isKnockback = false;
+        yield return new WaitForSeconds(0.15f);
         canMove = true;
     }
 }

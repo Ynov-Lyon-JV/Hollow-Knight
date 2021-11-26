@@ -15,15 +15,16 @@ public class ControllerHealth : MonoBehaviour
     private float dazedTime;
 
     private ControllerMove controllerMove;
+    private ControllerSpawn controllerSpawn;
 
-    private SpriteRenderer renderer;
+    private new SpriteRenderer renderer;
 
     [SerializeField]
     private GameObject bloodEffect;
 
     public bool isPlayer;
 
-    public Transform attackPos = null;
+    public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRangeX;
     public float attackRangeY;
@@ -39,7 +40,8 @@ public class ControllerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        controllerMove = this.transform.GetComponent<ControllerMove>();
+        controllerMove = transform.GetComponent<ControllerMove>();
+        controllerSpawn = transform.GetComponent<ControllerSpawn>();
         rigidbody2D = transform.GetComponent<Rigidbody2D>();
         renderer = transform.GetComponent<SpriteRenderer>();
     }
@@ -60,7 +62,13 @@ public class ControllerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            if (!isPlayer)
+            if (isPlayer)
+            {
+                health = 3;
+                controllerMove.isKnockback = false;
+                controllerSpawn.RespawnNear();
+            }
+            else
             {
                 Destroy(gameObject);
             }
@@ -69,7 +77,7 @@ public class ControllerHealth : MonoBehaviour
         timeBtwAttack -= Time.deltaTime;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,bool knockback = false, float directionDamage = 0)
     {
         if (!invulnerable)
         {
@@ -77,19 +85,13 @@ public class ControllerHealth : MonoBehaviour
             Instantiate(bloodEffect, transform.position, Quaternion.identity);
             health -= damage;
             StartCoroutine(TakeDamageColor());
-            StartCoroutine(Knockback());
+            if (knockback)
+            {
+                controllerMove.Knockback(directionDamage);
+            }
         }
     }
 
-    IEnumerator Knockback()
-    {
-        controllerMove.canMove = false;
-        controllerMove.isKnockback = true;  
-        yield return new WaitForSeconds(0.15f);
-        controllerMove.isKnockback = false;
-        yield return new WaitForSeconds(0.15f);
-        controllerMove.canMove = true;
-    }
 
     IEnumerator TakeDamageColor()
     {
@@ -141,7 +143,7 @@ public class ControllerHealth : MonoBehaviour
         {
             if (timeBtwAttack <= 0)
             {
-                collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(damage);
+                collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(damage,true,CalculeDirectionDamage(collision.gameObject.transform));
                 timeBtwAttack = startTimeBtwAttack;
             }
 
@@ -151,5 +153,11 @@ public class ControllerHealth : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(attackPos.position, new Vector3(attackRangeX, attackRangeY, 1));
+    }
+
+    private float CalculeDirectionDamage(Transform target)
+    {
+        ControllerBorder controllerBorder;
+        return Math.Sign(target.position.x - transform.position.x);
     }
 }
