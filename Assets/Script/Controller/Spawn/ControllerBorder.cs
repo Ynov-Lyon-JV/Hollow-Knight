@@ -21,7 +21,7 @@ public class ControllerBorder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(1);
+            collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(1,false);
             collision.gameObject.GetComponent<ControllerSpawn>().RespawnNear();
         }
     }

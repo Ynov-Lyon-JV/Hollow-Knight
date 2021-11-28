@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private ControllerMove controllerMove;
+    public static PlayerMove instance;
+
+    [NonSerialized]
+    public ControllerMove controllerMove;
     private ControllerHealth controllerHealth;
     private ControllerAnimation controllerAnimation;
     private ControllerAnimation controllerAnimationAttack;
@@ -16,10 +19,15 @@ public class PlayerMove : MonoBehaviour
     private bool isJump;
     private bool canIsJump;
 
-
-
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogWarning("Une instance de l'interface de la vie est déjà existante!");
+            return;
+        }
+        instance = this;
+
         moveIput.x = 0;
         controllerMove = transform.GetComponent<ControllerMove>();
         controllerHealth = transform.GetComponent<ControllerHealth>();

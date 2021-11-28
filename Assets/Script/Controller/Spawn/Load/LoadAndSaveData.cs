@@ -7,6 +7,8 @@ public class LoadAndSaveData : MonoBehaviour
 {
     public static LoadAndSaveData instance;
 
+    private float time = 1;
+
     private void Awake()
     {
         if (instance != null)
@@ -23,6 +25,8 @@ public class LoadAndSaveData : MonoBehaviour
         GameObject g = GameObject.Find("Cameras");
         CinemachineConfiner2D cinemachineConfiner = g.GetComponentInChildren<CinemachineConfiner2D>();
         cinemachineConfiner.m_BoundingShape2D = GameObject.Find("Background").GetComponent<PolygonCollider2D>();
+
+        StartCoroutine(loadFadeOut());
     }
     /*
         public void SaveData()
@@ -37,4 +41,14 @@ public class LoadAndSaveData : MonoBehaviour
             string itemsInInventory = string.Join(",", Inventory.instance.content.Select(x => x.id));
             PlayerPrefs.SetString("inventoryItems", itemsInInventory);
         }*/
+
+
+    public IEnumerator loadFadeOut()
+    {
+        yield return new WaitForSeconds(time);
+        time = 0.5f;
+        GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
+        yield return new WaitForSeconds(0.1f);
+        PlayerMove.instance.enabled = true;
+    }
 }

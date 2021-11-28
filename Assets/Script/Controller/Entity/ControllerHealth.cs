@@ -10,6 +10,34 @@ public class ControllerHealth : MonoBehaviour
     private int health;
 
     [SerializeField]
+    private int maxHealth;
+
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
+        set
+        {
+            health = value;
+            if (isPlayer)
+                InterfaceHealth.instance.Change(health);
+        }
+    }
+
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set
+        {
+            maxHealth = value;
+            if (isPlayer)
+                InterfaceHealth.instance.maxHealth = maxHealth;
+        }
+    }
+
+    [SerializeField]
     [Tooltip("De base: 0.6")]
     private float startDazedTime;
     private float dazedTime;
@@ -44,6 +72,11 @@ public class ControllerHealth : MonoBehaviour
         controllerSpawn = transform.GetComponent<ControllerSpawn>();
         rigidbody2D = transform.GetComponent<Rigidbody2D>();
         renderer = transform.GetComponent<SpriteRenderer>();
+
+        MaxHealth = MaxHealth;
+        Health = MaxHealth;
+        if (isPlayer)
+            InterfaceHealth.instance.Change(Health);
     }
 
     // Update is called once per frame
@@ -60,11 +93,11 @@ public class ControllerHealth : MonoBehaviour
             }
         }
 
-        if (health <= 0)
+        if (Health <= 0)
         {
             if (isPlayer)
             {
-                health = 3;
+                Health = 3;
                 controllerMove.isKnockback = false;
                 controllerSpawn.RespawnNear();
             }
@@ -77,15 +110,16 @@ public class ControllerHealth : MonoBehaviour
         timeBtwAttack -= Time.deltaTime;
     }
 
-    public void TakeDamage(int damage,bool knockback = false, float directionDamage = 0)
+    public void TakeDamage(int damage, bool particule = true, float directionDamage = 0)
     {
         if (!invulnerable)
         {
             dazedTime = startDazedTime;
-            Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            health -= damage;
+            if (particule)
+                Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            Health -= damage;
             StartCoroutine(TakeDamageColor());
-            if (knockback)
+            if (directionDamage > 0)
             {
                 controllerMove.Knockback(directionDamage);
             }
@@ -122,7 +156,6 @@ public class ControllerHealth : MonoBehaviour
 
     public bool Attack()
     {
-
         if (timeBtwAttack <= 0)
         {
             Collider2D[] ennemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, whatIsEnemies);
@@ -143,7 +176,7 @@ public class ControllerHealth : MonoBehaviour
         {
             if (timeBtwAttack <= 0)
             {
-                collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(damage,true,CalculeDirectionDamage(collision.gameObject.transform));
+                collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(damage, true, CalculeDirectionDamage(collision.gameObject.transform));
                 timeBtwAttack = startTimeBtwAttack;
             }
 
@@ -157,7 +190,6 @@ public class ControllerHealth : MonoBehaviour
 
     private float CalculeDirectionDamage(Transform target)
     {
-        ControllerBorder controllerBorder;
         return Math.Sign(target.position.x - transform.position.x);
     }
 }

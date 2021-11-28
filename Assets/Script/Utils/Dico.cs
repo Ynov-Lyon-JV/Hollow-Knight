@@ -13,6 +13,8 @@ public class Dico
         {"ANIM_PLAYER_LAND", "PlayerD_land"},
         {"ANIM_PLAYER_ATTACK", "PlayerD_attack"},
         {"ANIM_PLAYER_DASH", "PlayerD_dash"},
+        {"ANIM_TRANSITION_FADEIN", "FadeIn"},
+        {"ANIM_TRANSITION_FADEOUT", "FadeOut"},
         //BUTTON
         {"BUTTON_JUMP", "Button_Jump"},
         {"BUTTON_ATTACK", "Button_Attack"},

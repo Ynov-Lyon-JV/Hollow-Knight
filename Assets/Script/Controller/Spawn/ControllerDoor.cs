@@ -11,20 +11,19 @@ public class ControllerDoor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //StartCoroutine(loadNextScene());
-            ControllerSpawn.instance.pos = this.transform.GetChild(0).name; ;
-
-            SceneManager.LoadScene(scene);
+            StartCoroutine(loadNextScene());
         }
     }
 
 
     public IEnumerator loadNextScene()
     {
+        PlayerMove.instance.enabled = false;
+        GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEIN"));
         //LoadAndSaveData.instance.SaveData();
-        //fadeSystem.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         ControllerSpawn.instance.pos = this.transform.GetChild(0).name;
+
 
         SceneManager.LoadScene(scene);
     }

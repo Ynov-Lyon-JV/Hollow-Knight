@@ -28,6 +28,7 @@ public class ControllerSpawn : MonoBehaviour
         if (pos.Length > 1)
         {
             pos = Dico.Get(pos);
+            Debug.Log(pos);
             transform.position = GameObject.Find(pos).transform.position;
         }
         else
@@ -51,6 +52,21 @@ public class ControllerSpawn : MonoBehaviour
             }
         }
         if (posNear != -1)
-            transform.position = respawns[posNear].transform.position;
+            Respawn(respawns[posNear].transform.position);
+    }
+    public void Respawn(Vector3 posVector)
+    {
+        StartCoroutine(caroutineRespawn(posVector));
+    }
+    public IEnumerator caroutineRespawn(Vector3 posVector)
+    {
+        PlayerMove.instance.enabled = false;
+        GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEIN"));
+        yield return new WaitForSeconds(0.5f);
+        transform.position = posVector;
+        GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
+        yield return new WaitForSeconds(0.3f);
+        PlayerMove.instance.enabled = true;
+
     }
 }

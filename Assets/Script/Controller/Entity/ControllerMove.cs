@@ -56,6 +56,7 @@ public class ControllerMove : MonoBehaviour
     private float timeBtwDash = 0;
 
     private bool isGroundedLastFrame = false;
+    public bool load = false;
 
     public bool IsGrounded()
     {
@@ -87,60 +88,63 @@ public class ControllerMove : MonoBehaviour
     }
     public void Move(float velocityX, bool isJump = false)
     {
-        if (canMove)
+        if (!PlayerMove.instance.controllerMove.load)
         {
-            moveIput.x = velocityX;
-        }
-        else
-        {
-            moveIput.x = 0;
-        }
-        moveIput.y++;
-        rigidbody2D.velocity = new Vector2(moveIput.x * speed, rigidbody2D.velocity.y);
-        Flip();
-
-        if (isJump)
-        {
-            if (IsGrounded())
+            if (canMove)
             {
-                jumpTimeCompteur = jumpTime;
-                if (mobMove)
-                {
-                    //Play son mob mobMove.SonJump();
-                }
-                else
-                {
-                    SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_JUMP"), 0.5F);
-                    ParticuleController.playParticleEffect("DustJumpParticles", this.transform);
-                }
-            }
-            if (jumpTimeCompteur > 0f)
-            {
-                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpForce);
-                jumpTimeCompteur -= 1f;
+                moveIput.x = velocityX;
             }
             else
             {
-                jumpTimeCompteur = 0f;
+                moveIput.x = 0;
             }
-        }
-        if (isKnockback)
-        {
-            isDash = false;
-            rigidbody2D.velocity = new Vector2(directionDamage * 30f, 15f);
-        }
-        if (isDash)
-        {
-            rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
-        }
+            moveIput.y++;
+            rigidbody2D.velocity = new Vector2(moveIput.x * speed, rigidbody2D.velocity.y);
+            Flip();
 
-        if (!mobMove && IsGrounded() && !isGroundedLastFrame)
-        {
-            ParticuleController.playParticleEffect("DustLandParticles", this.transform);
-        }
-        isGroundedLastFrame = isGrounded;
+            if (isJump)
+            {
+                if (IsGrounded())
+                {
+                    jumpTimeCompteur = jumpTime;
+                    if (mobMove)
+                    {
+                        //Play son mob mobMove.SonJump();
+                    }
+                    else
+                    {
+                        SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_JUMP"), 0.5F);
+                        ParticuleController.playParticleEffect("DustJumpParticles", this.transform);
+                    }
+                }
+                if (jumpTimeCompteur > 0f)
+                {
+                    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpForce);
+                    jumpTimeCompteur -= 1f;
+                }
+                else
+                {
+                    jumpTimeCompteur = 0f;
+                }
+            }
+            if (isKnockback)
+            {
+                isDash = false;
+                rigidbody2D.velocity = new Vector2(directionDamage * 30f, 15f);
+            }
+            if (isDash)
+            {
+                rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
+            }
 
-        timeBtwDash -= Time.deltaTime;
+            if (!mobMove && IsGrounded() && !isGroundedLastFrame)
+            {
+                ParticuleController.playParticleEffect("DustLandParticles", this.transform);
+            }
+            isGroundedLastFrame = isGrounded;
+
+            timeBtwDash -= Time.deltaTime;
+        }
     }
 
     private void Flip()
