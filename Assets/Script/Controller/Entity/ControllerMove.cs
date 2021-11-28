@@ -18,13 +18,11 @@ public class ControllerMove : MonoBehaviour
     [Tooltip("La puissance du jump. De base: 30")]
     private float jumpForce;
 
-    [SerializeField]
     [Tooltip("De base: 0.3")]
-    private float checkRadius;
+    public float checkRadius;
 
-    [SerializeField]
     [Tooltip("De base: Platform")]
-    private LayerMask whatisGround;
+    public LayerMask whatisGround;
 
     [SerializeField]
     [Tooltip("Le temps de jump. De base: 15")]
@@ -78,6 +76,8 @@ public class ControllerMove : MonoBehaviour
         }
     }
 
+
+    #region Move
     void FixedUpdate()
     {
         if (mobMove)
@@ -134,8 +134,8 @@ public class ControllerMove : MonoBehaviour
             rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
         }
 
-        if(!mobMove && IsGrounded() && !isGroundedLastFrame)
-		{
+        if (!mobMove && IsGrounded() && !isGroundedLastFrame)
+        {
             ParticuleController.playParticleEffect("DustLandParticles", this.transform);
         }
         isGroundedLastFrame = isGrounded;
@@ -156,6 +156,9 @@ public class ControllerMove : MonoBehaviour
         direction = -this.transform.localScale.x;
 
     }
+    #endregion
+
+    #region Dash
     public void Dash()
     {
         if (timeBtwDash <= 0)
@@ -174,6 +177,9 @@ public class ControllerMove : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         canMove = true;
     }
+    #endregion
+
+    #region Knockback
     public void Knockback(float directionDamage)
     {
         this.directionDamage = directionDamage;
@@ -188,4 +194,5 @@ public class ControllerMove : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         canMove = true;
     }
+    #endregion
 }

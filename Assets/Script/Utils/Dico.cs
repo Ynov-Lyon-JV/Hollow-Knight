@@ -19,6 +19,19 @@ public class Dico
         {"BUTTON_DASH", "Button_Dash"},
         //SOUND
         {"SOUND_PLAYER_JUMP", "SoundEffect_Jump"},
+        //DIRECTION
+        {"N1","S1"},
+        {"N2","S2"},
+        {"N3","S3"},
+        {"S1","N1"},
+        {"S2","N2"},
+        {"S3","N3"},
+        {"O1","E1"},
+        {"O2","E2"},
+        {"O3","E3"},
+        {"E1","O1"},
+        {"E2","O2"},
+        {"E3","O3"},
     };
 
     public static string Get(string word)

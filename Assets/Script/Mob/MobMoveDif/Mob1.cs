@@ -30,4 +30,9 @@ public class Mob1 : MobMove
             CM.directionLock = false;
         }
     }
+
+    public override void Flip()
+    {
+        CM.direction = -CM.direction;
+    }
 }
