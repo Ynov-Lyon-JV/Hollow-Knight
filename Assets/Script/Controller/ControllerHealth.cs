@@ -89,6 +89,12 @@ public class ControllerHealth : MonoBehaviour
             {
                 controllerMove.Knockback(directionDamage);
             }
+            //StartCoroutine(Knockback()); Toujours utile ?
+
+            if (isPlayer)
+            {
+                InterfaceHealth.instance.health = health;
+            }
         }
     }
 
