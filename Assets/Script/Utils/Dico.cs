@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class Dico
         {"ANIM_PLAYER_LAND", "PlayerD_land"},
         {"ANIM_PLAYER_ATTACK", "PlayerD_attack"},
         {"ANIM_PLAYER_DASH", "PlayerD_dash"},
+        {"ANIM_PLAYER_DASH_EFFECT", "Dash"},
         {"ANIM_TRANSITION_FADEIN", "FadeIn"},
         {"ANIM_TRANSITION_FADEOUT", "FadeOut"},
         //BUTTON
@@ -21,7 +23,7 @@ public class Dico
         {"BUTTON_DASH", "Button_Dash"},
         //SOUND
         {"SOUND_PLAYER_JUMP", "SoundEffect_Jump"},
-        //DIRECTION
+        //DIRECTION Entrées
         {"N1","S1"},
         {"N2","S2"},
         {"N3","S3"},
@@ -38,6 +40,14 @@ public class Dico
 
     public static string Get(string word)
     {
-        return Dictionary[word];
+        if (Dictionary.ContainsKey(word))
+            return Dictionary[word];
+        return "";
+    }
+
+
+    public static float CalculeDirection(Transform target, Transform entity)
+    {
+        return Math.Sign(target.position.x - entity.position.x);
     }
 }
