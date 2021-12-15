@@ -157,6 +157,7 @@ public class ControllerMove : MonoBehaviour
 
         if (!mobMove && IsGrounded() && !isGroundedLastFrame)
         {
+            SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_LANDING"), 0.5F);
             ParticuleController.playParticleEffect("DustLandParticles", this.transform);
         }
         isGroundedLastFrame = IsGrounded();

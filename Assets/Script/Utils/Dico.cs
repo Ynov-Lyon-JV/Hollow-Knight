@@ -23,6 +23,7 @@ public class Dico
         {"BUTTON_DASH", "Button_Dash"},
         //SOUND
         {"SOUND_PLAYER_JUMP", "SoundEffect_Jump"},
+        {"SOUND_PLAYER_LANDING", "SoundEffect_Landing"},
         //DIRECTION Entrées
         {"N1","S1"},
         {"N2","S2"},

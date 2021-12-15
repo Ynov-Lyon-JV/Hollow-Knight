@@ -2016,6 +2016,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4722934426974528267, guid: 944cc618b167cdb4aa7d3f294d4952f8, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 944cc618b167cdb4aa7d3f294d4952f8, type: 3}
 --- !u!4 &814223004 stripped
@@ -4531,6 +4535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1107806334}
     m_Modifications:
+    - target: {fileID: 3412163014841455852, guid: 302353601d18caf44bcc59226d80be8a, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3412163014841455854, guid: 302353601d18caf44bcc59226d80be8a, type: 3}
       propertyPath: m_RootOrder
       value: 7
