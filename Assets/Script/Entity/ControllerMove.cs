@@ -68,8 +68,6 @@ public class ControllerMove : MonoBehaviour
 
     public bool IsGrounded()
     {
-
-        isGroundedLastFrame = isGrounded;
         if (feetPosEyes != null)
         {
             isGrounded = Physics2D.OverlapCircle(feetPosEyes.position, checkRadius, whatisGround);
@@ -162,6 +160,7 @@ public class ControllerMove : MonoBehaviour
             SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_LANDING"), 0.5F);
             ParticuleController.playParticleEffect("DustLandParticles", this.transform);
         }
+        isGroundedLastFrame = IsGrounded();
 
         timeBtwDash -= Time.deltaTime;
     }
