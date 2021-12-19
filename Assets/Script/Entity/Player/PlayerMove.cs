@@ -44,7 +44,7 @@ public class PlayerMove : MonoBehaviour
         moveIput.x = Math.Sign(Input.GetAxisRaw("Horizontal"));
 
 
-        if (Input.GetButtonDown(Dico.Get("BUTTON_JUMP")) && controllerMove.IsGrounded())
+        if (Input.GetButtonDown(Dico.Get("BUTTON_JUMP")) && controllerMove.isGroundedLastFrame)
         {
             canIsJump = true;
             isJump = true;

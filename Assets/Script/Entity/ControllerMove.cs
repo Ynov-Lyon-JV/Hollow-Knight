@@ -52,7 +52,7 @@ public class ControllerMove : MonoBehaviour
     [NonSerialized]
     public bool directionLock;
 
-    private MobMove mobMove;
+    public MobMove mobMove;
 
     public bool isGrounded = false;
     public bool isKnockback = false;
@@ -68,6 +68,8 @@ public class ControllerMove : MonoBehaviour
 
     public bool IsGrounded()
     {
+
+        isGroundedLastFrame = isGrounded;
         if (feetPosEyes != null)
         {
             isGrounded = Physics2D.OverlapCircle(feetPosEyes.position, checkRadius, whatisGround);
@@ -155,12 +157,11 @@ public class ControllerMove : MonoBehaviour
         }
 
 
-        if (!mobMove && IsGrounded() && !isGroundedLastFrame)
+        if (!mobMove && !isGroundedLastFrame && IsGrounded())
         {
             SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_LANDING"), 0.5F);
             ParticuleController.playParticleEffect("DustLandParticles", this.transform);
         }
-        isGroundedLastFrame = IsGrounded();
 
         timeBtwDash -= Time.deltaTime;
     }

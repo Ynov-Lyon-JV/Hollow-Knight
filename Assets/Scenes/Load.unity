@@ -1085,8 +1085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce8ce73ec146604e91b05e8bb254085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastscene: Level 01
-  lastPos: O2
+  lastscene: Level Default
+  lastPos: O1
 --- !u!4 &1283667422
 Transform:
   m_ObjectHideFlags: 0
@@ -1384,7 +1384,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1640,6 +1640,7 @@ MonoBehaviour:
   feetPos: {fileID: 0}
   moveIput: {x: 0, y: 0}
   direction: 0
+  mobMove: {fileID: 0}
   isGrounded: 0
   isKnockback: 0
   canMove: 1
@@ -1814,7 +1815,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 6
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

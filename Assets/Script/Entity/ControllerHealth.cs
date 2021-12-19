@@ -123,6 +123,8 @@ public class ControllerHealth : MonoBehaviour
             {
                 controllerMove.Knockback(directionDamage);
             }
+            if(!isPlayer)
+                controllerMove.mobMove.Detect = true;
         }
     }
 

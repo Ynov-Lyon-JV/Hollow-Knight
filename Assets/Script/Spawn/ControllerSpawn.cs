@@ -67,6 +67,7 @@ public class ControllerSpawn : MonoBehaviour
         GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEIN"));
         yield return new WaitForSeconds(0.5f);
         transform.position = posVector;
+        yield return new WaitForSeconds(0.5f);
         GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
         yield return new WaitForSeconds(0.3f);
         PlayerMove.instance.enabled = true;
