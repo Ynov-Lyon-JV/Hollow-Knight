@@ -21,9 +21,6 @@ public class Dico
         {"BUTTON_JUMP", "Button_Jump"},
         {"BUTTON_ATTACK", "Button_Attack"},
         {"BUTTON_DASH", "Button_Dash"},
-        //SOUND
-        {"SOUND_PLAYER_JUMP", "SoundEffect_Jump"},
-        {"SOUND_PLAYER_LANDING", "SoundEffect_Landing"},
         //DIRECTION Entrées
         {"N1","S1"},
         {"N2","S2"},
@@ -37,6 +34,14 @@ public class Dico
         {"E1","O1"},
         {"E2","O2"},
         {"E3","O3"},
+        //SOUND
+        {"SOUND_PLAYER_JUMP", "hornet_jump"},
+        {"SOUND_PLAYER_LANDING", "hornet_ground_land"},
+        {"SOUND_PLAYER_DASH", "hornet_dash"},
+        {"SOUND_PLAYER_SWORD", "hornet_sword"},
+        {"SOUND_PLAYER_DOMAGE", "hero_damage"},
+        {"SOUND_ENEMY_DOMAGE", "enemy_damage"},
+        {"SOUND_ENEMY_DEATH", "enemy_death_sword"},
     };
 
     public static string Get(string word)

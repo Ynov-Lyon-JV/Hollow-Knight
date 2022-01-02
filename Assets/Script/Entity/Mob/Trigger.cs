@@ -12,6 +12,11 @@ public class Trigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        mobControllerHealth.TriggerMob(collision);
+        if (LayerMask.LayerToName(gameObject.layer) == "Secret")
+        {
+            GetComponent<FadeOut>().canFade = true;
+        }
+        else
+            mobControllerHealth.TriggerMob(collision);
     }
 }

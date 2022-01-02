@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 675042506557196216}
   - component: {fileID: 8578995013111188703}
   - component: {fileID: 8578995013111188702}
+  - component: {fileID: 2168923689367230231}
   - component: {fileID: 8578995013111188705}
   - component: {fileID: 8578995013111188707}
   - component: {fileID: 8578995013111188704}
@@ -265,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773710a0a2ca1f045bc117fbc7385d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimeDetect: 2
 --- !u!114 &8578995013111188703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,11 +290,13 @@ MonoBehaviour:
   feetPos: {fileID: 0}
   moveIput: {x: 0, y: 0}
   direction: 0
+  mobMove: {fileID: 0}
   isGrounded: 0
   isKnockback: 0
   canMove: 1
   isDash: 0
   startTimeBtwDash: 0
+  isGroundedLastFrame: 0
   load: 0
 --- !u!114 &8578995013111188702
 MonoBehaviour:
@@ -319,6 +323,20 @@ MonoBehaviour:
   attackRangeY: 0
   damage: 1
   startTimeBtwAttack: 1
+--- !u!114 &2168923689367230231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578995013111188708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef3bf8add8eaeb40a1f9d8f7d3b0d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canFade: 0
+  timeToFadeStart: 3
 --- !u!212 &8578995013111188705
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -634,7 +634,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 254
+  spritePixelsToUnits: 253
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1178,8 +1178,8 @@ TextureImporter:
       physicsShape:
       - - {x: -128, y: -128}
         - {x: -128, y: 128}
-        - {x: 6, y: 128}
-        - {x: 5, y: -128}
+        - {x: -18, y: 128}
+        - {x: -20, y: -128}
       tessellationDetail: 0
       bones: []
       spriteID: 9b85475c1ebdf1b70800000000000000
@@ -1488,8 +1488,8 @@ TextureImporter:
       physicsShape:
       - - {x: -128, y: -128}
         - {x: -128, y: 128}
-        - {x: 6, y: 128}
-        - {x: 5, y: -128}
+        - {x: -18, y: 128}
+        - {x: -20, y: -128}
       tessellationDetail: 0
       bones: []
       spriteID: 3ee3cff744aeea2d0800000000000000
@@ -1812,8 +1812,8 @@ TextureImporter:
       physicsShape:
       - - {x: -128, y: -128}
         - {x: -128, y: 128}
-        - {x: 6, y: 128}
-        - {x: 5, y: -128}
+        - {x: -18, y: 128}
+        - {x: -20, y: -128}
       tessellationDetail: 0
       bones: []
       spriteID: 62780b3af5fdef4b0800000000000000
@@ -2657,8 +2657,8 @@ TextureImporter:
       physicsShape:
       - - {x: -128, y: -128}
         - {x: -128, y: -30.703613}
-        - {x: -34, y: -31}
-        - {x: -34, y: -128}
+        - {x: -20, y: -31}
+        - {x: -20, y: -128}
       tessellationDetail: 0
       bones: []
       spriteID: 8c95085158023a360800000000000000
@@ -3247,8 +3247,8 @@ TextureImporter:
       physicsShape:
       - - {x: -128, y: -128}
         - {x: -128, y: 128}
-        - {x: 18, y: 128}
-        - {x: 23, y: -128}
+        - {x: -18, y: 128}
+        - {x: -20, y: -128}
       tessellationDetail: 0
       bones: []
       spriteID: 725dda63436d8ce50800000000000000
@@ -3565,8 +3565,8 @@ TextureImporter:
       physicsShape:
       - - {x: -128, y: -128}
         - {x: -128, y: 128}
-        - {x: 18, y: 128}
-        - {x: 23, y: -128}
+        - {x: -18, y: 128}
+        - {x: -20, y: -128}
       tessellationDetail: 0
       bones: []
       spriteID: a875bd82d1fa7a020800000000000000
@@ -3867,8 +3867,8 @@ TextureImporter:
       physicsShape:
       - - {x: -128, y: -128}
         - {x: -128, y: 128}
-        - {x: 18, y: 128}
-        - {x: 23, y: -128}
+        - {x: -18, y: 128}
+        - {x: -20, y: -128}
       tessellationDetail: 0
       bones: []
       spriteID: 86c884c0f90a25f50800000000000000
@@ -5020,7 +5020,7 @@ TextureImporter:
       name: TileSet_194
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 3070
         y: 0
         width: 256
         height: 256

@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2 moveIput;
 
-    private new Rigidbody2D rigidbody2D;
+    private Rigidbody2D rigidbody2D;
     private bool isJump;
     private bool canIsJump;
 
@@ -38,7 +38,7 @@ public class PlayerMove : MonoBehaviour
         rigidbody2D = transform.GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
-    void Update()
+    public void TUpdate()
     {
 
         moveIput.x = Math.Sign(Input.GetAxisRaw("Horizontal"));
@@ -71,6 +71,7 @@ public class PlayerMove : MonoBehaviour
             if (!controllerMove.isDash && controllerHealth.Attack())
             {
                 controllerAnimationAttack.AnimationPlay(Dico.Get("ANIM_PLAYER_ATTACK"));
+
             }
         }
 
@@ -114,9 +115,8 @@ public class PlayerMove : MonoBehaviour
         return animeState;
     }
 
-    void FixedUpdate()
+    public void Move()
     {
-
         if (timeJump < 0 && controllerMove.IsGrounded())
         {
             isJump = false;

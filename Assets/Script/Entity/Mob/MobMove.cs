@@ -13,6 +13,7 @@ public abstract class MobMove : MonoBehaviour
 
     private int timeDirectionLock = 0;
 
+
     public virtual void Move()
     {
         MoveBasic();
@@ -72,6 +73,24 @@ public abstract class MobMove : MonoBehaviour
             Detect = false;
         }
     }
+    #endregion
+
+
+    #region Destroy
+
+    public virtual void Destroy()
+    {
+        Destroy(GetComponent<ControllerMove>());
+        Destroy(GetComponent<ControllerHealth>());
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        GetComponent<FadeOut>().canFade = true;
+    }
+
+    #endregion
 }
-#endregion
+
+
 

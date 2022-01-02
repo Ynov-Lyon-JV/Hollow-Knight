@@ -45,7 +45,7 @@ public class ControllerHealth : MonoBehaviour
     private ControllerMove controllerMove;
     private ControllerSpawn controllerSpawn;
 
-    private new SpriteRenderer renderer;
+    private SpriteRenderer renderer;
 
     [SerializeField]
     private GameObject bloodEffect;
@@ -58,20 +58,18 @@ public class ControllerHealth : MonoBehaviour
     public float attackRangeY;
     public int damage;
 
-    private float timeBtwAttack = 0;
+    public float timeBtwAttack = 0;
     public float startTimeBtwAttack;
 
 
-    private new Rigidbody2D rigidbody2D;
     private bool invulnerable = false;
 
     // Start is called before the first frame update
     void Awake()
     {
-        controllerMove = transform.GetComponent<ControllerMove>();
-        controllerSpawn = transform.GetComponent<ControllerSpawn>();
-        rigidbody2D = transform.GetComponent<Rigidbody2D>();
-        renderer = transform.GetComponent<SpriteRenderer>();
+        controllerMove = GetComponent<ControllerMove>();
+        controllerSpawn = GetComponent<ControllerSpawn>();
+        renderer = GetComponent<SpriteRenderer>();
 
         MaxHealth = MaxHealth;
         Health = MaxHealth;
@@ -103,7 +101,7 @@ public class ControllerHealth : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                GetComponent<MobMove>().Destroy();
             }
         }
 
@@ -112,8 +110,16 @@ public class ControllerHealth : MonoBehaviour
 
     public void TakeDamage(int damage, bool particule = true, float directionDamage = 0)
     {
+
+        
         if (!invulnerable)
         {
+            if (LayerMask.LayerToName(gameObject.layer) == "Secret")
+            {
+                //Health -= damage;
+                GetComponent<FadeOut>().canFade = true;
+            }
+            else { 
             dazedTime = startDazedTime;
             if (particule)
                 Instantiate(bloodEffect, transform.position, Quaternion.identity);
@@ -123,8 +129,19 @@ public class ControllerHealth : MonoBehaviour
             {
                 controllerMove.Knockback(directionDamage);
             }
-            if(!isPlayer)
-                controllerMove.mobMove.Detect = true;
+                if (isPlayer)
+                {
+                    SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_DOMAGE"), 0.33F);
+                }
+                else
+                {
+                    if (health > 0) {
+                        SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_ENEMY_DOMAGE"), 0.4F);
+                        controllerMove.mobMove.Detect = true; }
+                    else { 
+                        SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_ENEMY_DEATH"), 0.4F);}
+                }
+        }
         }
     }
 
@@ -166,6 +183,8 @@ public class ControllerHealth : MonoBehaviour
                 ennemiesToDamage[i].GetComponent<ControllerHealth>().TakeDamage(damage);
             }
             timeBtwAttack = startTimeBtwAttack;
+            
+                SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_SWORD"), 0.1F);
             return true;
         }
         return false;

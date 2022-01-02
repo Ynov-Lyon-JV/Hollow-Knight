@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ControllerAnimation : MonoBehaviour
@@ -36,6 +37,7 @@ public class ControllerAnimation : MonoBehaviour
     {
         StartCoroutine(AnimationWait(nameAnim));
     }
+
 
     public IEnumerator AnimationWait(string nameAnim)
     {

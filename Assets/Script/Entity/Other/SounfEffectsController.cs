@@ -11,19 +11,21 @@ public class SounfEffectsController : MonoBehaviour
     public void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(Resources.Load<AudioClip>("Audio/BackgroundMusic/hollow-knight-ost-greenpath"), 0.1f);
     }
 
-    public static void playSoundEffect(string soundName)
+    public static void PlaySoundEffect(string soundName)
 	{
         soundToPlay = Resources.Load<AudioClip>("Audio/SoundEffects/" + soundName);
         audioSource.PlayOneShot(soundToPlay);
 	}
 
-    public static void playSoundEffect(string soundName, float volume)
+    public static void PlaySoundEffect(string soundName, float volume)
     {
         soundToPlay = Resources.Load<AudioClip>("Audio/SoundEffects/" + soundName);
         audioSource.PlayOneShot(soundToPlay, volume);
     }
+
 
     //fonction qui verfie si le son a deja ete joué
 }

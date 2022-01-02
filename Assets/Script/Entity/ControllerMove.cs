@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class ControllerMove : MonoBehaviour
 {
-    private ControllerMove instance;
+    private readonly ControllerMove instance;
 
     [SerializeField]
     [Tooltip("La vitesse du gameObject. De base: 15 pour le player")]
@@ -38,7 +38,7 @@ public class ControllerMove : MonoBehaviour
     private Transform feetPosEyes = null;
 
     public Vector2 moveIput;
-    private new Rigidbody2D rigidbody2D;
+    private Rigidbody2D rigidbody2D;
 
 
     [SerializeField]
@@ -83,9 +83,9 @@ public class ControllerMove : MonoBehaviour
     {
         speed = speedBase;
         moveIput = new Vector2();
-        feetPos = transform.GetComponent<Collider2D>();
-        rigidbody2D = transform.GetComponent<Rigidbody2D>();
-        mobMove = transform.GetComponent<MobMove>();
+        feetPos = GetComponent<Collider2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        mobMove = GetComponent<MobMove>();
         if (mobMove)
         {
             mobMove.CM = this;
@@ -95,11 +95,22 @@ public class ControllerMove : MonoBehaviour
 
 
     #region Move
+    void Update()
+    {
+        if (!mobMove)
+        {
+            PlayerMove.instance.TUpdate();
+        }
+    }
     void FixedUpdate()
     {
-        if (mobMove)
+        if (mobMove && canMove)
         {
             mobMove.Move();
+        }
+        if (!mobMove)
+        {
+            PlayerMove.instance.Move();
         }
     }
     public void Move(float velocityX, bool isJump = false)
@@ -139,8 +150,8 @@ public class ControllerMove : MonoBehaviour
                 }
                 else
                 {
-                    SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_JUMP"), 0.5F);
-                    ParticuleController.playParticleEffect("DustJumpParticles", this.transform);
+                    SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_JUMP"), 0.3F);
+                    ParticuleController.PlayParticleEffect("DustJumpParticles", this.transform);
                 }
             }
             if (jumpTimeCompteur > 0f)
@@ -157,16 +168,20 @@ public class ControllerMove : MonoBehaviour
 
         if (!mobMove && !isGroundedLastFrame && IsGrounded())
         {
-            SounfEffectsController.playSoundEffect(Dico.Get("SOUND_PLAYER_LANDING"), 0.5F);
-            ParticuleController.playParticleEffect("DustLandParticles", this.transform);
+            SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_LANDING"), 0.2F);
+            ParticuleController.PlayParticleEffect("DustLandParticles", this.transform);
         }
         isGroundedLastFrame = IsGrounded();
 
         timeBtwDash -= Time.deltaTime;
     }
 
+
     private void Flip()
     {
+        if (GetComponent<ControllerHealth>().timeBtwAttack > GetComponent<ControllerHealth>().startTimeBtwAttack-0.2f)
+            return;
+
         if (moveIput.x < 0f)
         {
             this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
@@ -186,6 +201,8 @@ public class ControllerMove : MonoBehaviour
         {
             StartCoroutine(CaroutineDash());
             transform.Find("Dash").GetComponent<ControllerAnimation>().AnimationPlay(Dico.Get("ANIM_PLAYER_DASH_EFFECT"));
+
+            SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_DASH"), 0.3F);
         }
     }
 
