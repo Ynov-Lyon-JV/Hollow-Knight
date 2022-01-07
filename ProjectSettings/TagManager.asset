@@ -3,18 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Platform
-  - 
-  - 
-  - 
+  - Mob
+  - Trap
+  - Secret
   - 
   - 
   - 

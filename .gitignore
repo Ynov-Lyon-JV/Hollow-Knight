@@ -38,4 +38,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-ProjectSettings/TimelineSettings.asset
+
+UserSettings/
+Packages/
