@@ -78,8 +78,12 @@ public abstract class MobMove : MonoBehaviour
 
     #region Destroy
 
+    public ParticleSystem pvParticle;
+
     public virtual void Destroy()
     {
+        //transform.Find("PVParticle").GetComponent<ParticleSystem>().Play();
+        
         Destroy(GetComponent<ControllerMove>());
         Destroy(GetComponent<ControllerHealth>());
         foreach (Transform child in transform)
