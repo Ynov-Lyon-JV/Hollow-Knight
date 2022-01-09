@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastscene: Level Default
-  lastPos: O1
+  lastPos: E1
 --- !u!4 &1283667422
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,6 +1464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1881855878}
+  - component: {fileID: 1881855889}
   - component: {fileID: 1881855884}
   - component: {fileID: 1881855887}
   - component: {fileID: 1881855883}
@@ -1641,12 +1642,11 @@ MonoBehaviour:
   feetPos: {fileID: 0}
   moveIput: {x: 0, y: 0}
   direction: 0
-  mobMove: {fileID: 0}
+  entity: {fileID: 0}
   isGrounded: 0
   isKnockback: 0
   canMove: 1
   isDash: 0
-  startTimeBtwDash: 1
   isGroundedLastFrame: 0
   load: 0
 --- !u!61 &1881855885
@@ -1699,9 +1699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a159af7154570408d4e14f8186148a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 4
   startDazedTime: 0
+  renderer: {fileID: 0}
   bloodEffect: {fileID: 4637752002281614779, guid: 2088683cecb5a3b4385d91f4db09b04f, type: 3}
   isPlayer: 1
   attackPos: {fileID: 1941866107}
@@ -1713,6 +1712,7 @@ MonoBehaviour:
   damage: 1
   timeBtwAttack: 0
   startTimeBtwAttack: 0.5
+  invulnerable: 0
 --- !u!114 &1881855888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,6 +1725,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3066fc7b5c286384d9d466f02904a8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1881855889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881855877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e903ae8f0d5694a8d4dd71a7cf1dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 5
 --- !u!1 &1941866106
 GameObject:
   m_ObjectHideFlags: 0

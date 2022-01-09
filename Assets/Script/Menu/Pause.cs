@@ -34,6 +34,13 @@ public class Pause : MonoBehaviour
                 Paused();
             }
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!gameIsPaused)
+            {
+                LoadMainMenu();
+            }
+        }
     }
 
     public void Paused()
