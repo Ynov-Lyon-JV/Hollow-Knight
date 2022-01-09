@@ -66,6 +66,11 @@ public class ControllerMove : MonoBehaviour
     public bool isGroundedLastFrame = false;
     public bool load = false;
 
+
+    public ProjectileBehaviour ProjectilePrefab;
+    public Transform FireOffset;
+
+
     public bool IsGrounded()
     {
         if (feetPosEyes != null)
@@ -204,6 +209,20 @@ public class ControllerMove : MonoBehaviour
 
             SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_DASH"), 0.3F);
         }
+    }
+
+    public void Fire()
+	{
+        ProjectileBehaviour pb = Instantiate(ProjectilePrefab, FireOffset.position, new Quaternion());
+        if (direction>0)
+		{
+            pb.speed = -20f;
+        }
+		else
+		{
+            pb.speed = 20f;
+        }
+               
     }
 
     IEnumerator CaroutineDash()

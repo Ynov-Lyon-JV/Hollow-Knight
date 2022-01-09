@@ -21,6 +21,7 @@ public class Dico
         {"BUTTON_JUMP", "Button_Jump"},
         {"BUTTON_ATTACK", "Button_Attack"},
         {"BUTTON_DASH", "Button_Dash"},
+        {"BUTTON_FIRE", "Button_Fire"},
         //DIRECTION Entrées
         {"N1","S1"},
         {"N2","S2"},

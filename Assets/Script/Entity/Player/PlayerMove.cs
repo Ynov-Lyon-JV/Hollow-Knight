@@ -80,6 +80,11 @@ public class PlayerMove : MonoBehaviour
             controllerMove.Dash();
         }
 
+        if (Input.GetButtonDown(Dico.Get("BUTTON_FIRE")))
+        {
+            controllerMove.Fire();
+        }
+
         controllerAnimation.ChangeAnimationState(Dico.Get(GetAnimeState()));
     }
 
