@@ -48,6 +48,6 @@ public class LoadAndSaveData : MonoBehaviour
         GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
         yield return new WaitForSeconds(0.1f);
         PlayerMove.instance.enabled = true;
-        PlayerMove.instance.controllerMove.enabled = true;
+        PlayerMove.instance.player.controllerMove.enabled = true;
     }
 }

@@ -774,11 +774,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3465665532889803749, guid: 13711018dff935b469796f8d6e788333, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -563.26
+      value: -564.84
       objectReference: {fileID: 0}
     - target: {fileID: 3465665532889803749, guid: 13711018dff935b469796f8d6e788333, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.15
+      value: -20.79
       objectReference: {fileID: 0}
     - target: {fileID: 3465665532889803749, guid: 13711018dff935b469796f8d6e788333, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1630,7 +1630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2789764809026425660, guid: 94c82c416e2ff6849bc40508c6f49ea0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.28
+      value: 39.51
       objectReference: {fileID: 0}
     - target: {fileID: 2789764809026425660, guid: 94c82c416e2ff6849bc40508c6f49ea0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23157,7 +23157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeDetect: 2
-  pvParticle: {fileID: 0}
 --- !u!114 &1873093415
 MonoBehaviour:
   m_ObjectHideFlags: 0

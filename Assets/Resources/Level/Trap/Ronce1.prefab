@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2789764809026425659}
   - component: {fileID: 2789764809026425661}
   - component: {fileID: 3328648484194522861}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Ronce1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dddf90ab2974594689dc50767af0e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerHealth: {fileID: 0}
 --- !u!212 &2789764809026425659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -287,7 +286,7 @@ GameObject:
   - component: {fileID: 2789764809443140392}
   - component: {fileID: 2789764809443140393}
   - component: {fileID: 1516605039073161770}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
