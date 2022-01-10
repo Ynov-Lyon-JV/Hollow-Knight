@@ -1475,7 +1475,6 @@ GameObject:
   - component: {fileID: 1881855880}
   - component: {fileID: 1881855885}
   - component: {fileID: 1881855889}
-  - component: {fileID: 1881855890}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1639,8 +1638,8 @@ MonoBehaviour:
   checkRadius: 0.3
   whatisGround:
     serializedVersion: 2
-    m_Bits: 832
-  jumpTime: 20
+    m_Bits: 320
+  jumpTime: 15
   feetPos: {fileID: 0}
   moveIput: {x: 0, y: 0}
   direction: 0
@@ -1649,10 +1648,11 @@ MonoBehaviour:
   isKnockback: 0
   canMove: 1
   isDash: 0
+  startTimeBtwDash: 1
   isGroundedLastFrame: 0
   load: 0
-  ProjectilePrefab: {fileID: 1881855890}
-  FireOffset: {fileID: 1881855878}
+  ProjectilePrefab: {fileID: 2855481001060298314, guid: 681a1e44430962345947b5152aba9a75, type: 3}
+  FireOffset: {fileID: 1941866107}
 --- !u!61 &1881855885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1712,7 +1712,7 @@ MonoBehaviour:
   attackPos: {fileID: 1941866107}
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 128
   attackRangeX: 3
   attackRangeY: 4
   damage: 1
@@ -1743,23 +1743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e903ae8f0d5694a8d4dd71a7cf1dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1881855890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881855877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bacb5fac9f008046b2351f39d3c5308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  whatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 128
-  damage: 1
 --- !u!1 &1941866106
 GameObject:
   m_ObjectHideFlags: 0

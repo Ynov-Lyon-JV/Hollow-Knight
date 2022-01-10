@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mob : EffectMob
+public class Mob : Entity
 {
 
     #region Move
@@ -43,7 +43,7 @@ public class Mob : EffectMob
     private float timeDetect = 0;
 
     private bool detect;
-    public override bool Detect
+    public virtual bool Detect
     {
         get { return detect; }
         set
@@ -85,7 +85,32 @@ public class Mob : EffectMob
         }
         GetComponent<FadeOut>().canFade = true;
     }
+    public override void EffectTakeDamage()
+    {
 
+        StartCoroutine(EffectTakeDamageColor());
+        if (controllerHealth.Health > 0)
+        {
+            SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_ENEMY_DOMAGE"), 0.4F);
+            Detect = true;
+        }
+        else
+        {
+            SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_ENEMY_DEATH"), 0.4F);
+        }
+    }
+
+
+    public override IEnumerator EffectTakeDamageColor()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            yield return new WaitForSeconds(0.2f);
+            controllerHealth.renderer.color = Color.red;
+            yield return new WaitForSeconds(0.2f);
+            controllerHealth.renderer.color = Color.white;
+        }
+    }
     #endregion
 
 

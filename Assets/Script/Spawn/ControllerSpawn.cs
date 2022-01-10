@@ -11,7 +11,7 @@ public class ControllerSpawn : MonoBehaviour
     public string pos = "";
 
     private GameObject[] respawns;
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (instance != null)

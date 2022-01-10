@@ -25,7 +25,6 @@ public class Entity : MonoBehaviour
 
     [NonSerialized]
     public ControllerHealth controllerHealth;
-    public virtual bool Detect { get; set; }
 
     public virtual void UpdatePlayerHealth()
     {

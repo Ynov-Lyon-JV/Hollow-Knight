@@ -115,7 +115,7 @@ public class ControllerMove : MonoBehaviour
         }
         else if (isDash)
         {
-            rigidbody2D.velocity = new Vector2(direction * 30f, 1f);
+            rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
             jumpTimeCompteur = 0f;
         }
         else if (isJump)
@@ -182,7 +182,7 @@ public class ControllerMove : MonoBehaviour
         timeBtwDash = startTimeBtwDash;
         canMove = false;
         isDash = true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         isDash = false;
         yield return new WaitForSeconds(0.1f);
         canMove = true;

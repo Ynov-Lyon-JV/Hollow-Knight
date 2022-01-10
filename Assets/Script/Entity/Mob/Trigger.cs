@@ -14,7 +14,8 @@ public class Trigger : MonoBehaviour
     {
         if (LayerMask.LayerToName(gameObject.layer) == "Secret")
         {
-            GetComponent<FadeOut>().canFade = true;
+            if(collision.gameObject.CompareTag("Player"))
+                GetComponent<FadeOut>().canFade = true;
         }
         else
             mobControllerHealth.TriggerMob(collision);
