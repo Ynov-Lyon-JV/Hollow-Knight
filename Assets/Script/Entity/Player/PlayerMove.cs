@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public static PlayerMove instance;
 
     public Player player;
     private ControllerAnimation controllerAnimation;
@@ -14,19 +13,14 @@ public class PlayerMove : MonoBehaviour
     private Vector2 moveIput;
 
     private new Rigidbody2D rigidbody2D;
-    private bool isJump;
-    private bool canIsJump;
+    public bool isJump;
+    public bool canIsJump;
 
-    private int timeJump = 0;
+    public float timePressJump = 0;
+    public int timeJump = 0;
 
     private void Awake()
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("Une instance de l'interface de la vie est déjà existante!");
-            return;
-        }
-        instance = this;
 
         moveIput.x = 0;
         player = GetComponent<Player>();
@@ -40,9 +34,14 @@ public class PlayerMove : MonoBehaviour
 
         moveIput.x = Math.Sign(Input.GetAxisRaw("Horizontal"));
 
-
-        if (Input.GetButtonDown(Dico.Get("BUTTON_JUMP")) && player.controllerMove.isGroundedLastFrame)
+        timePressJump -= Time.deltaTime;
+        if (Input.GetButtonDown(Dico.Get("BUTTON_JUMP"))){
+            timePressJump = 0.12f;
+        }
+        if (timePressJump > 0 && player.controllerMove.timeGrounded > 0)
         {
+            //Debug.Log("je saute: " + timePressJump + " et ground : "+ player.controllerMove.timeGrounded);
+            timePressJump = 0;
             canIsJump = true;
             isJump = true;
             timeJump = 3;
@@ -107,7 +106,6 @@ public class PlayerMove : MonoBehaviour
         else if (rigidbody2D.velocity.y < 0.01f)
         {
             animeState = "ANIM_PLAYER_LAND";
-            canIsJump = false;
         }
         else if (rigidbody2D.velocity.y > 0.01f)
         {

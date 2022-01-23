@@ -45,7 +45,7 @@ public class Pause : MonoBehaviour
 
     public void Paused()
     {
-        PlayerMove.instance.enabled = false;
+        Player.instance.Pause();
         //pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused = true;
@@ -53,7 +53,7 @@ public class Pause : MonoBehaviour
 
     public void Resume()
     {
-        PlayerMove.instance.enabled = true;
+        Player.instance.Resume();
         //pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;

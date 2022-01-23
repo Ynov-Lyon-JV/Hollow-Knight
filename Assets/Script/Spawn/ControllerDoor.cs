@@ -20,8 +20,7 @@ public class ControllerDoor : MonoBehaviour
 
     private IEnumerator LoadNextScene()
     {
-        PlayerMove.instance.enabled = false;
-        PlayerMove.instance.player.controllerMove.enabled = false;
+        Player.instance.Pause();
         GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEIN"));
         //LoadAndSaveData.instance.SaveData();
         yield return new WaitForSeconds(0.5f);

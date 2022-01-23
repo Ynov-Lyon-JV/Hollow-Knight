@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
-    private ControllerHealth mobControllerHealth;
-
-    void Awake()
+    private string type;
+    private void Awake()
     {
-        mobControllerHealth = transform.GetComponentInParent<ControllerHealth>();
+        type = LayerMask.LayerToName(transform.parent.gameObject.layer);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (LayerMask.LayerToName(gameObject.layer) == "Secret")
+
+        if (type == "Mob" || type == "Trap")
+        {
+            GetComponentInParent<ControllerHealth>().TriggerMob(collision,"Player");
+        }
+        else if (type == "Pet")
+        {
+            GetComponentInParent<ControllerHealth>().TriggerMob(collision,"Mob");
+        }
+        else if (type == "Secret")
         {
             if(collision.gameObject.CompareTag("Player"))
                 GetComponent<FadeOut>().canFade = true;
         }
-        else
-            mobControllerHealth.TriggerMob(collision);
     }
 }

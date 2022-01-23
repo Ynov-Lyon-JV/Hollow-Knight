@@ -3083,7 +3083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107806333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -197.3, y: -71, z: 51.184338}
+  m_LocalPosition: {x: 10, y: -65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1386230226}
@@ -3093,6 +3093,7 @@ Transform:
   - {fileID: 1324841246}
   - {fileID: 742441802}
   - {fileID: 727451419}
+  - {fileID: 1541802700}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3475,6 +3476,124 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1541802699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1541802700}
+  - component: {fileID: 1541802701}
+  m_Layer: 6
+  m_Name: A* Pahtfinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1541802700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541802699}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 229.11053, y: 73.1231, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1107806334}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1541802701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541802699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIewYXh8IcgIAACoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoXxBx91by0Q0kMSJqSTiy/CWmMNsuSR5ADJ8N+7km3s0hPi7b7dt08rfxEuTQWZVXqjOXtSDMiPEXFn8m3UBx/hTA9K7vgndDnvnNnCJVGf80otV4iHjmZUCVbz7Kc8CJccIFhLnitdrtkBlspYg3BOhQEMaWUdWyL0NSJn/BknjnLBU7Rwp088JcHoiscMpAU9SJ0FXW48mcVBEs8XUUtpGLXMBC0rYE5+T4ziZLIIgiCMWnoynySeIHHENjecLFxPJQQ3rUJiL5V3YFcVoMFZwDjFgb2qcBIjUAA/FNY1GbJf8tyAbf3Q9LLiGp1rypJfqrGzpObYiPygonaN5lOvqqn59F94HPpwrlX52LUNvSe24NnxlV4yauzA7iG8Gij3Vp2oONK9gPcC5LPaaFVLhkGra0etDUSr/u9tsmUB2bHHG6l3YF313nc31t2tm+Hqhz8vBS/3LjSZNsBOKO+3XwnQeDe/UbBfGNOWQNSp+GPgjR6Gm9UGHrg2FkPtlNLJ26tau1Sy9p65aWq7VFqCh1vRFUgq7GWLZez9Dd7FBm3vIg/UvaG2eRvrnsYdxcN9fhDchbbqdLssU6jTE5jipbaCS+hFu8Az+rRUUjYLNvSko+1qndNsQDvUnP27WoSGLM5ClrGczmgY5uMojhMGUf59Pw3pAhLid49LnJOKbSO0tQdvTfbFJe5Z92kZbTSt/LIzTU8b/lmqgeVc5mqXaQD50lS4CQeNTfBdsjXjaNAOrOXS3zf5SolQ2RFYeiuU+knXZ6tp2ldJScU/lHVISpb+W5ISB992eavhg8PJNe+KXcn1L1BLAwQUAAAICAAACCHs7KwG8m0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UqJhinGyYUpySlqiaaKhYZqukbGxZUqqUZpFkolhonmqpVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsGF4fCHICAAAqBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHs7KwG8m0AAAB4AAAACQAkAAAAAAAAAAAAAAC/AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHcDAAAAAA==
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 0
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
 --- !u!4 &1585553883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8578995013111188709, guid: bbba65018578f82478534ef80f58e575, type: 3}

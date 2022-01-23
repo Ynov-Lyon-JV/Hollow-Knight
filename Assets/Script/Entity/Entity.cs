@@ -50,9 +50,14 @@ public class Entity : MonoBehaviour
     {
     }
 
-    public virtual IEnumerator EffectTakeDamageColor()
+    public virtual IEnumerator EffectInvulnerability()
     {
         return null;
+    }
+
+    public virtual bool IsProtect(int damage)
+    {
+        return false;
     }
     #endregion
 

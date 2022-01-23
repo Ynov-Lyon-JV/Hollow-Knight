@@ -2,35 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyesCollision : MonoBehaviour
+public class EyesCollision : Eyes
 {
-
-    private Mob mobMove;
-
-    // Start is called before the first frame update
-    void Awake()
+    public override void FixedUpdate()
     {
-        mobMove = transform.GetComponentInParent<Mob>();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (Physics2D.OverlapPoint(transform.position, mobMove.controllerMove.whatisGround))
+        if (Physics2D.OverlapPoint(transform.position, mob.controllerMove.whatisGround))
         {
-            if(mobMove.Detect)
-                mobMove.Detect = false;
-            mobMove.Flip();
+            if (mob.Detect)
+                mob.Detect = false;
+            mob.Flip();
         }
     }
-
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            mobMove.Detect = true;
-        }
-    }
-
 }

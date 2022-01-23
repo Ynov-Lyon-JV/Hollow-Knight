@@ -30,7 +30,14 @@ public class ControllerSpawn : MonoBehaviour
             pos = Dico.Get(pos);
             GameObject spawn = GameObject.Find(pos);
             if (spawn)
+            {
                 transform.position = spawn.transform.position;
+                if (GameObject.Find("Pets") && GameObject.Find("PetBat"))
+                {
+                    GameObject.Find("Pets").transform.position = spawn.transform.position;
+                    GameObject.Find("PetBat").transform.position = spawn.transform.position;
+                }
+            }
             else
                 RespawnNear();
         }
@@ -63,16 +70,18 @@ public class ControllerSpawn : MonoBehaviour
     }
     public IEnumerator CaroutineRespawn(Vector3 posVector)
     {
-        PlayerMove.instance.enabled = false;
-        PlayerMove.instance.player.controllerMove.enabled = false;
+
+        Player.instance.Pause();
         GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEIN"));
         yield return new WaitForSeconds(0.5f);
         transform.position = posVector;
         yield return new WaitForSeconds(0.5f);
         GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
         yield return new WaitForSeconds(0.3f);
-        PlayerMove.instance.enabled = true;
-        PlayerMove.instance.player.controllerMove.enabled = true;
+        Player.instance.Resume();
+        Player.instance.controllerHealth.timeInvulnerable = Player.instance.controllerHealth.timeInvulnerableStart * 2;
+
+
 
     }
 }

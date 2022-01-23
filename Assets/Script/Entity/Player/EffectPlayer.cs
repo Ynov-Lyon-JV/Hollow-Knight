@@ -20,14 +20,14 @@ public class EffectPlayer : Entity
     public override void EffectTakeDamage()
     {
 
-        StartCoroutine(EffectTakeDamageColor());
+        StartCoroutine(EffectInvulnerability());
         SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_DOMAGE"), 0.33F);
     }
-    public override IEnumerator EffectTakeDamageColor()
+    public override IEnumerator EffectInvulnerability()
     {
 
 
-        controllerHealth.invulnerable = true;
+        controllerHealth.timeInvulnerable = controllerHealth.timeInvulnerableStart;
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.2f);
@@ -35,7 +35,6 @@ public class EffectPlayer : Entity
             yield return new WaitForSeconds(0.2f);
             controllerHealth.renderer.color = Color.white;
         }
-        controllerHealth.invulnerable = false;
     }
 
 

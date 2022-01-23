@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 6cd0d232f89d7db449a23a57e23e65ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2621437539321483401
+    second: moustique_0
+  - first:
+      213: 8479133563611152100
+    second: moustique_1
+  - first:
+      213: -4584391607455061425
+    second: moustique_2
+  - first:
+      213: 825202803795054518
+    second: moustique_4
+  - first:
+      213: 8623582307599606444
+    second: moustique_5
+  - first:
+      213: -4252061902005445850
+    second: moustique_6
+  - first:
+      213: -5295259674347867913
+    second: moustique_7
+  - first:
+      213: 4492884643541421773
+    second: moustique_8
+  - first:
+      213: -3146445479150444822
+    second: moustique_9
+  - first:
+      213: 4892662450307173612
+    second: moustique_10
+  - first:
+      213: 7973453642533872133
+    second: moustique_11
+  - first:
+      213: 69934172647036223
+    second: moustique_12
+  - first:
+      213: 4912667407500178851
+    second: moustique_14
+  - first:
+      213: -435552716834473457
+    second: moustique_15
+  - first:
+      213: -6205270743606186644
+    second: moustique_16
+  - first:
+      213: -1945153887009890289
+    second: moustique_17
+  - first:
+      213: 5393894993908991293
+    second: moustique_18
+  - first:
+      213: -7154608202885394837
+    second: moustique_19
+  - first:
+      213: -6610082693742723193
+    second: moustique_20
+  - first:
+      213: -8323714581483961490
+    second: moustique_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: moustique_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1281
+        width: 223
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f6edb6278ce9bd0800000000000000
+      internalID: -2621437539321483401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_1
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 1281
+        width: 190
+        height: 269
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee722e3d0feba570800000000000000
+      internalID: 8479133563611152100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_2
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1279
+        width: 218
+        height: 273
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4aeb564f18f060c0800000000000000
+      internalID: -4584391607455061425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_4
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1281
+        width: 226
+        height: 172
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf4cd3f395b37b00800000000000000
+      internalID: 825202803795054518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_5
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1287
+        width: 197
+        height: 148
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca261d74b6e1da770800000000000000
+      internalID: 8623582307599606444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 937
+        width: 172
+        height: 279
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b5eff7a34adf4c0800000000000000
+      internalID: -4252061902005445850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_7
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 940
+        width: 166
+        height: 264
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f07b05b1657386b0800000000000000
+      internalID: -5295259674347867913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_8
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 670
+        width: 271
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce081b67cee95e30800000000000000
+      internalID: 4492884643541421773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_10
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 603
+        width: 146
+        height: 274
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec837c739a36e340800000000000000
+      internalID: 4892662450307173612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_11
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 668
+        width: 290
+        height: 211
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502a64cb7d567ae60800000000000000
+      internalID: 7973453642533872133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_12
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 582
+        width: 205
+        height: 238
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35994e62c478f000800000000000000
+      internalID: 69934172647036223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_14
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 273
+        width: 247
+        height: 264
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5ffab8afc4d2440800000000000000
+      internalID: 4912667407500178851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_15
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 265
+        width: 282
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0aff189c1b94f9f0800000000000000
+      internalID: -435552716834473457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_16
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 268
+        width: 272
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6daa38b22372e9a0800000000000000
+      internalID: -6205270743606186644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_18
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 275
+        width: 224
+        height: 153
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3504bb3be6fada40800000000000000
+      internalID: 5393894993908991293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_19
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 280
+        height: 185
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6e8be70fb9b5bc90800000000000000
+      internalID: -7154608202885394837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_20
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 20
+        width: 144
+        height: 202
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ff18fcfc44444a0800000000000000
+      internalID: -6610082693742723193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moustique_21
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 37
+        width: 140
+        height: 142
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63c8e660b93c7c80800000000000000
+      internalID: -8323714581483961490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

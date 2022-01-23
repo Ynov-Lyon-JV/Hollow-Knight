@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class ControllerBorder : MonoBehaviour
 {
+    private Player player;
+
+    private void Awake()
+    {
+        player = Player.instance;
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && collision is CapsuleCollider2D)
         {
-            collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(1,false);
-            collision.gameObject.GetComponent<ControllerSpawn>().RespawnNear();
+            Player.instance.controllerHealth.TakeDamage(1, false, 0, false);
+            if (Player.instance.controllerHealth.Health <= 0)
+            {
+                return;
+            }
+
+    collision.gameObject.GetComponent<ControllerSpawn>().RespawnNear();
+
         }
     }
 }

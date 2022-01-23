@@ -7,12 +7,15 @@ public class Mob : Entity
 
     #region Move
 
+    protected bool isJump = false;
+
     private int timeDirectionLock = 0;
 
 
     public override void Move()
     {
         MoveBasic();
+        controllerMove.Move(controllerMove.direction / controllerMove.slowTempo, isJump);
     }
 
     protected void MoveBasic()
@@ -26,7 +29,6 @@ public class Mob : Entity
         {
             timeDirectionLock--;
         }
-        controllerMove.Move(controllerMove.direction / controllerMove.slowTempo);
     }
 
     public void Flip()
@@ -40,7 +42,7 @@ public class Mob : Entity
     [SerializeField]
     [Tooltip("De base: 2")]
     private float startTimeDetect = 2;
-    private float timeDetect = 0;
+    public float timeDetect = 0;
 
     private bool detect;
     public virtual bool Detect
@@ -57,6 +59,7 @@ public class Mob : Entity
             }
         }
     }
+    public Transform whoDetect;
 
     void Update()
     {
@@ -88,7 +91,7 @@ public class Mob : Entity
     public override void EffectTakeDamage()
     {
 
-        StartCoroutine(EffectTakeDamageColor());
+        StartCoroutine(EffectInvulnerability());
         if (controllerHealth.Health > 0)
         {
             SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_ENEMY_DOMAGE"), 0.4F);
@@ -101,7 +104,7 @@ public class Mob : Entity
     }
 
 
-    public override IEnumerator EffectTakeDamageColor()
+    public override IEnumerator EffectInvulnerability()
     {
         for (int i = 0; i < 2; i++)
         {

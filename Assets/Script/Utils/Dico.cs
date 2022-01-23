@@ -22,6 +22,7 @@ public class Dico
         {"BUTTON_ATTACK", "Button_Attack"},
         {"BUTTON_DASH", "Button_Dash"},
         {"BUTTON_FIRE", "Button_Fire"},
+        {"BUTTON_SPELL", "Button_Spell"},
         //DIRECTION Entrées
         {"N1","S1"},
         {"N2","S2"},
@@ -43,6 +44,11 @@ public class Dico
         {"SOUND_PLAYER_DOMAGE", "hero_damage"},
         {"SOUND_ENEMY_DOMAGE", "enemy_damage"},
         {"SOUND_ENEMY_DEATH", "enemy_death_sword"},
+        //SPELL
+        {"SPELL_SLIME", "SPELL_SLIME_SHIELD"},
+        {"SPELL_TREE", "SPELL_TREE"},
+        {"SPELL_MUSHROOM", "SPELL_MUSHROOM"},
+        {"SPELL_BAT", "SPELL_BAT"},
     };
 
     public static string Get(string word)
@@ -57,4 +63,5 @@ public class Dico
     {
         return Math.Sign(target.position.x - entity.position.x);
     }
+
 }

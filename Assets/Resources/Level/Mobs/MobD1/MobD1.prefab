@@ -266,8 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773710a0a2ca1f045bc117fbc7385d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 3
   startTimeDetect: 2
 --- !u!114 &8578995013111188703
 MonoBehaviour:
@@ -289,6 +287,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   jumpTime: 0
+  jumpTimeCompteur: 0
   feetPos: {fileID: 0}
   moveIput: {x: 0, y: 0}
   direction: 0
@@ -297,8 +296,12 @@ MonoBehaviour:
   isKnockback: 0
   canMove: 1
   isDash: 0
+  startTimeBtwDash: 0
+  timeGrounded: 0
   isGroundedLastFrame: 0
   load: 0
+  ProjectilePrefab: {fileID: 0}
+  FireOffset: {fileID: 0}
 --- !u!114 &8578995013111188702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a159af7154570408d4e14f8186148a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 3
   startDazedTime: 0.3
   renderer: {fileID: 0}
   bloodEffect: {fileID: 4637752002281614779, guid: 2088683cecb5a3b4385d91f4db09b04f, type: 3}
@@ -324,7 +329,8 @@ MonoBehaviour:
   damage: 1
   timeBtwAttack: 0
   startTimeBtwAttack: 1
-  invulnerable: 0
+  timeInvulnerableStart: 0.4
+  timeInvulnerable: 0
 --- !u!114 &2168923689367230231
 MonoBehaviour:
   m_ObjectHideFlags: 0
