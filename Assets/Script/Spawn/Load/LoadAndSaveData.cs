@@ -45,7 +45,7 @@ public class LoadAndSaveData : MonoBehaviour
     public IEnumerator LoadFadeOut()
     {
         yield return new WaitForSeconds(1);
-        GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
+        GameObject.Find("UI_Transition").GetComponent<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
         yield return new WaitForSeconds(0.1f);
         Player.instance.Resume();
     }

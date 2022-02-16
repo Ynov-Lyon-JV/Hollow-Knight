@@ -9,16 +9,11 @@ public class SpellSlime : Spell
     {
         type = Type.Defense;
         renderer = GetComponent<Renderer>();
+        name = "SPELL_SLIME";
+
+        Clean();
     }
 
-    public override bool Verif()
-    {
-        if (!isActivate && timeBtwSpell <= 0)
-        {
-            return true;
-        }
-        return false;
-    }
 
     public override void InitSpell()
     {
@@ -30,10 +25,15 @@ public class SpellSlime : Spell
     {
         if (isActivate)
         {
-            isActivate = false;
-            renderer.enabled = false;
+            Clean();
             return true;
         }
         return false;
+    }
+
+    public override void Clean()
+    {
+        isActivate = false;
+        renderer.enabled = false;
     }
 }

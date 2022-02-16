@@ -81,7 +81,8 @@ public class ControllerMove : MonoBehaviour
 
     public bool IsGrounded()
     {
-        isGrounded = Physics2D.OverlapCircle(feetPos.transform.position, checkRadius, whatisGround);
+
+        isGrounded = Physics2D.OverlapCircle(new Vector2(feetPos.bounds.center.x,feetPos.bounds.min.y), checkRadius, whatisGround);
         if (isGrounded)
         {
             timeGrounded = 0.12f;

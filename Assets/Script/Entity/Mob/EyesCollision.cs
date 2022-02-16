@@ -6,7 +6,7 @@ public class EyesCollision : Eyes
 {
     public override void FixedUpdate()
     {
-        if (Physics2D.OverlapPoint(transform.position, mob.controllerMove.whatisGround))
+        if (Physics2D.OverlapBox(transform.position,new Vector2(1,1),90, mob.controllerMove.whatisGround))
         {
             if (mob.Detect)
                 mob.Detect = false;
