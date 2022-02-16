@@ -11,6 +11,7 @@ public class Load : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.Find("UI").transform.Find("UI_Transition").gameObject.SetActive(true);
         ControllerSpawn.instance.pos = lastPos;
         SceneManager.LoadScene(lastscene);
     }

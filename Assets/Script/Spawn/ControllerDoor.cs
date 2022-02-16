@@ -21,7 +21,7 @@ public class ControllerDoor : MonoBehaviour
     private IEnumerator LoadNextScene()
     {
         Player.instance.Pause();
-        GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEIN"));
+        GameObject.Find("UI_Transition").GetComponent<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEIN"));
         //LoadAndSaveData.instance.SaveData();
         yield return new WaitForSeconds(0.5f);
         ControllerSpawn.instance.pos = this.transform.GetChild(0).name;

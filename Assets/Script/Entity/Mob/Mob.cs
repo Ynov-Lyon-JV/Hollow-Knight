@@ -79,7 +79,8 @@ public class Mob : Entity
 
     public override void Destroy()
     {
-        //transform.Find("PVParticle").GetComponent<ParticleSystem>().Play();
+        GameObject xp = Instantiate(Resources.Load<GameObject>("Level/Follet/Follet"), transform.position, Quaternion.identity);
+        xp.name = "SPELL_" + transform.name;
         Destroy(GetComponent<ControllerMove>());
         Destroy(GetComponent<ControllerHealth>());
         foreach (Transform child in transform)

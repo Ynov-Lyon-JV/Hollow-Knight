@@ -5,25 +5,40 @@ using UnityEngine;
 public class Trigger : MonoBehaviour
 {
     private string type;
+    private bool isFirstTime = true;
+
     private void Awake()
     {
-        type = LayerMask.LayerToName(transform.parent.gameObject.layer);
+        type = LayerMask.LayerToName(gameObject.layer);
+        if(type=="Default")
+            type = LayerMask.LayerToName(transform.parent.gameObject.layer);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-        if (type == "Mob" || type == "Trap")
+        switch (type)
         {
-            GetComponentInParent<ControllerHealth>().TriggerMob(collision,"Player");
-        }
-        else if (type == "Pet")
-        {
-            GetComponentInParent<ControllerHealth>().TriggerMob(collision,"Mob");
-        }
-        else if (type == "Secret")
-        {
-            if(collision.gameObject.CompareTag("Player"))
-                GetComponent<FadeOut>().canFade = true;
+            case "Mob":
+            case "Trap":
+                GetComponentInParent<ControllerHealth>().TriggerMob(collision, "Player");
+                break;
+            case "Pet":
+                GetComponentInParent<ControllerHealth>().TriggerMob(collision, "Mob");
+                break;
+            case "Secret":
+                if (collision.gameObject.CompareTag("Player"))
+                    GetComponent<FadeOut>().canFade = true;
+                break;
+            case "Attract Item":
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    GetComponent<FadeOut>().canFade = true;
+                    if (isFirstTime)
+                    {
+                        ControllerSpell.instance.XpSpell(transform.name);
+                        isFirstTime = false;
+                    }
+                }
+                break;
         }
     }
 }

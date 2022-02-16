@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
+    public GameObject spellBook;
+
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenuUI;
@@ -20,6 +22,8 @@ public class Pause : MonoBehaviour
             return;
         }
         instance = this;
+        spellBook = GameObject.Find("UI_Spells");
+        spellBook.SetActive(false);
     }
     void Update()
     {
@@ -39,6 +43,19 @@ public class Pause : MonoBehaviour
             if (gameIsPaused)
             {
                 LoadMainMenu();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (spellBook.activeSelf)
+            {
+                Player.instance.Resume();
+                spellBook.SetActive(false);
+            }
+            else
+            {
+                spellBook.SetActive(true);
+                Player.instance.Pause();
             }
         }
     }

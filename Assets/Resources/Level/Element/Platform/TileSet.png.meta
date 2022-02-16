@@ -688,7 +688,7 @@ TextureImporter:
         height: 256
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 146, y: 0, z: 0, w: 136}
       outline: []
       physicsShape:
       - - {x: 81, y: -128}
@@ -4129,7 +4129,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 510
         width: 256
         height: 256
       alignment: 0
@@ -4456,15 +4456,15 @@ TextureImporter:
         height: 256
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 126, y: 119, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 6, y: -15}
-        - {x: 6, y: 128}
+      - - {x: -19, y: -30}
+        - {x: -19, y: 128}
         - {x: -128, y: 128}
         - {x: -128, y: -128}
         - {x: 128, y: -128}
-        - {x: 128, y: -11}
+        - {x: 123, y: -31}
       tessellationDetail: 0
       bones: []
       spriteID: 7fd4b46f916055c10800000000000000
@@ -4486,9 +4486,9 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -9, y: 128}
-        - {x: -11, y: -7}
-        - {x: -128, y: -11}
+      - - {x: 11, y: 128}
+        - {x: 8, y: -37}
+        - {x: -128, y: -38}
         - {x: -128, y: -128}
         - {x: 128, y: -128}
         - {x: 128, y: 128}
@@ -4513,12 +4513,12 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 6, y: -15}
-        - {x: 6, y: 128}
+      - - {x: -19, y: -30}
+        - {x: -19, y: 128}
         - {x: -128, y: 128}
         - {x: -128, y: -128}
         - {x: 128, y: -128}
-        - {x: 128, y: -11}
+        - {x: 123, y: -31}
       tessellationDetail: 0
       bones: []
       spriteID: aea0d9af4ee5c4b60800000000000000
@@ -4540,9 +4540,9 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -9, y: 128}
-        - {x: -11, y: -7}
-        - {x: -128, y: -11}
+      - - {x: 11, y: 128}
+        - {x: 8, y: -37}
+        - {x: -128, y: -38}
         - {x: -128, y: -128}
         - {x: 128, y: -128}
         - {x: 128, y: 128}

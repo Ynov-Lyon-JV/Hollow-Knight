@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,10 @@ public class Spell : MonoBehaviour
         Utility,
     }
 
+    [NonSerialized]
     public Type type;
+    [NonSerialized]
+    public new string name = "SPELL";
 
     private Player player;
 
@@ -21,9 +25,58 @@ public class Spell : MonoBehaviour
     protected float timeBtwSpell = 0;
     protected bool isActivate = false;
 
+    public Sprite spriteIcon;
+
+    public int xp;
+
+    private bool IsUnlock = false;
+
+    public bool isUnlock
+    {
+        get
+        {
+            return IsUnlock;
+        }
+        set
+        {
+            IsUnlock = value;
+            if (value)
+            {
+                ControllerSpell.instance.AfficheUI();
+            }
+        }
+    }
+
+    private bool IsSelect = false;
+
+    public bool isSelect
+    {
+        get
+        {
+            return IsSelect;
+        }
+        set
+        {
+            IsSelect = value;
+            if (!value)
+            {
+                Clean();
+            }
+            else
+            {
+                InitSpell();
+            }
+        }
+    }
+
+    public virtual void Clean()
+    {
+    }
+
     private void Awake()
     {
         player = GetComponent<Player>();
+        xp = 0;
     }
     private void Update()
     {
@@ -46,7 +99,7 @@ public class Spell : MonoBehaviour
 
     public virtual bool Verif()
     {
-        if (!isActivate && Input.GetButtonDown(Dico.Get("BUTTON_SPELL")) && timeBtwSpell <= 0)
+        if (isSelect && !isActivate && timeBtwSpell <= 0)
         {
             return true;
         }
