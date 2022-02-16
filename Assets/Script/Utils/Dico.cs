@@ -22,6 +22,7 @@ public class Dico
         {"BUTTON_ATTACK", "Button_Attack"},
         {"BUTTON_DASH", "Button_Dash"},
         {"BUTTON_FIRE", "Button_Fire"},
+        {"BUTTON_BOMB", "Button_Bomb"},
         {"BUTTON_SPELL", "Button_Spell"},
         //DIRECTION Entrées
         {"N1","S1"},

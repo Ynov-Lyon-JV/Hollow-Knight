@@ -79,6 +79,10 @@ public class PlayerMove : MonoBehaviour
         {
             player.controllerMove.Fire();
         }
+        if (Input.GetButtonDown(Dico.Get("BUTTON_BOMB")))
+        {
+            player.controllerMove.Bomb();
+        }
 
         controllerAnimation.ChangeAnimationState(Dico.Get(GetAnimeState()));
     }

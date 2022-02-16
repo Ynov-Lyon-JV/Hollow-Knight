@@ -225,4 +225,13 @@ public class ControllerMove : MonoBehaviour
         }
 
     }
+
+    public BombBehaviour BombPrefab;
+    public void Bomb()
+	{
+        Vector3 BombPosition = FireOffset.position;
+        BombPosition.x = BombPosition.x - 1;
+        BombBehaviour bb = Instantiate(BombPrefab, FireOffset.position, new Quaternion());
+
+    }
 }
