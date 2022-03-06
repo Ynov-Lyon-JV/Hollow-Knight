@@ -9,7 +9,7 @@ public class SpellPetBat : Spell
     private void Awake()
     {
         type = Type.Summuner;
-        name = "SPELL_PETBAT";
+        name = "Spell_Bat";
 
         foreach (GameObject gObject in GameObject.FindGameObjectsWithTag("Pet"))
         {

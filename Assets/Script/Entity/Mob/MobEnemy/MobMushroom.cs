@@ -17,7 +17,7 @@ public class MobMushroom : Mob
         if (Detect && IsNotAxe())
         {
             if(controllerMove.IsGrounded())
-                controllerMove.Move(Dico.CalculeDirection(target,transform)* 1.5f);
+                controllerMove.Move(Dico.CalculeDirection(transform, target) * 1.5f);
             else
             {
                 Detect = false;

@@ -34,7 +34,18 @@ public class Trigger : MonoBehaviour
                     GetComponent<FadeOut>().canFade = true;
                     if (isFirstTime)
                     {
+                        if (transform.name == "pv")
+                        {
+                            Player.instance.controllerHealth.Health++;
+                        }
+                        else if (transform.name == "bonus")
+                        {
+                            Player.instance.Bonus++;
+                        }
+                        else
+                        {
                         ControllerSpell.instance.XpSpell(transform.name);
+                        }
                         isFirstTime = false;
                     }
                 }

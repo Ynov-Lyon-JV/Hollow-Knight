@@ -9,7 +9,7 @@ public class SpellSlime : Spell
     {
         type = Type.Defense;
         renderer = GetComponent<Renderer>();
-        name = "SPELL_SLIME";
+        name = "Spell_Slime";
 
         Clean();
     }

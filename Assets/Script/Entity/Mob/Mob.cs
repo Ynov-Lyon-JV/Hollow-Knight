@@ -79,8 +79,8 @@ public class Mob : Entity
 
     public override void Destroy()
     {
-        GameObject xp = Instantiate(Resources.Load<GameObject>("Level/Follet/Follet"), transform.position, Quaternion.identity);
-        xp.name = "SPELL_" + transform.name;
+        GameObject xp = Instantiate(Resources.Load<GameObject>("Level/Follet/Follet_XP"), transform.position, Quaternion.identity);
+        xp.name = "Spell_" + transform.name;
         Destroy(GetComponent<ControllerMove>());
         Destroy(GetComponent<ControllerHealth>());
         foreach (Transform child in transform)
@@ -109,9 +109,9 @@ public class Mob : Entity
     {
         for (int i = 0; i < 2; i++)
         {
-            yield return new WaitForSeconds(0.2f);
-            controllerHealth.renderer.color = Color.red;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.12f);
+            controllerHealth.renderer.color = Color.gray;
+            yield return new WaitForSeconds(0.12f);
             controllerHealth.renderer.color = Color.white;
         }
     }

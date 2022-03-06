@@ -8,13 +8,13 @@ public class EffectPlayer : Entity
     public override void EffectJump()
     {
         SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_JUMP"), 0.3F);
-        ParticuleController.PlayParticleEffect("DustJumpParticles", this.transform);
+        ParticuleController.PlayParticleEffect("DustJumpParticles", transform.Find("Feet"));
     }
 
     public override void EffectGrounded()
     {
         SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_LANDING"), 0.2F);
-        ParticuleController.PlayParticleEffect("DustLandParticles", this.transform);
+        ParticuleController.PlayParticleEffect("DustLandParticles", transform.Find("Feet"));
     }
 
     public override void EffectTakeDamage()
@@ -28,13 +28,15 @@ public class EffectPlayer : Entity
 
 
         controllerHealth.timeInvulnerable = controllerHealth.timeInvulnerableStart;
-        for (int i = 0; i < 3; i++)
+        while(controllerHealth.timeInvulnerable > 0)
         {
-            yield return new WaitForSeconds(0.2f);
-            controllerHealth.renderer.color = Color.red / 2;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.15f);
+            controllerHealth.renderer.color = Color.black;
+            yield return new WaitForSeconds(0.15f);
             controllerHealth.renderer.color = Color.white;
         }
+
+        controllerHealth.renderer.color = Color.white;
     }
 
 

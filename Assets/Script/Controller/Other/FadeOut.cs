@@ -18,6 +18,8 @@ public class FadeOut : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (Sprites == null)
+            return;
         if (canFade)
         {
             foreach(Renderer sprite in Sprites)
@@ -26,7 +28,7 @@ public class FadeOut : MonoBehaviour
                     sprite.material.color = Color.Lerp(sprite.material.color, new Color(0, 0, 0, 0), timeToFade * Time.deltaTime);
             }
         }
-        if (Sprites[0].material.color.a < 0.0001)
+        if (Sprites[0].material.color.a < 0.001)
         {
             Destroy(gameObject);
         }

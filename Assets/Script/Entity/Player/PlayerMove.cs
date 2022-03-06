@@ -19,13 +19,17 @@ public class PlayerMove : MonoBehaviour
     public float timePressJump = 0;
     public int timeJump = 0;
 
+    public Transform attack;
+    public Transform attackUp;
+    public Transform attackDown;
+
     private void Awake()
     {
 
         moveIput.x = 0;
         player = GetComponent<Player>();
         controllerAnimation = transform.GetComponent<ControllerAnimation>();
-        controllerAnimationAttack = transform.Find("Attack").GetComponent<ControllerAnimation>();
+        controllerAnimationAttack = transform.Find("AnimatorAttack").GetComponent<ControllerAnimation>();
         rigidbody2D = transform.GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
@@ -64,8 +68,23 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetButtonDown(Dico.Get("BUTTON_ATTACK")))
         {
-            if (!player.controllerMove.isDash && player.controllerHealth.Attack())
+            int direction = Math.Sign(Input.GetAxisRaw("Vertical"));
+            Transform position = attack;
+            int isAttackDown = 0;
+            if (direction > 0) { 
+                position = attackUp;
+            isAttackDown = -1;
+        }
+        if (direction < 0)
             {
+
+                position = attackDown;
+                isAttackDown = 1;
+            }
+
+            if (!player.controllerMove.isDash && player.controllerHealth.Attack(position,isAttackDown))
+            {
+                controllerAnimationAttack.transform.SetPositionAndRotation(position.position, position.rotation);
                 controllerAnimationAttack.AnimationPlay(Dico.Get("ANIM_PLAYER_ATTACK"));
 
             }

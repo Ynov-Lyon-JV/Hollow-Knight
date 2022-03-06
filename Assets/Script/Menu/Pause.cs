@@ -27,7 +27,7 @@ public class Pause : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown(Dico.Get("BUTTON_CANCEL")))
         {
             if (gameIsPaused)
             {
@@ -45,7 +45,7 @@ public class Pause : MonoBehaviour
                 LoadMainMenu();
             }
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetButtonDown(Dico.Get("BUTTON_SPELLMENU")))
         {
             if (spellBook.activeSelf)
             {

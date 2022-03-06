@@ -33,11 +33,11 @@ public class ControllerMove : MonoBehaviour
 
 
     [SerializeField]
-    private Collider2D feetPos;
+    public Collider2D feetPos;
     private Transform feetPosEyes = null;
 
     public Vector2 moveIput;
-    private new Rigidbody2D rigidbody2D;
+    public new Rigidbody2D rigidbody2D;
 
 
     [SerializeField]
@@ -115,12 +115,12 @@ public class ControllerMove : MonoBehaviour
         if (isKnockback)
         {
             isDash = false;
-            rigidbody2D.velocity = new Vector2(directionDamage * 30f, 15f);
-            jumpTimeCompteur = 0f;
+            rigidbody2D.velocity = vectorKnockback;
+            //jumpTimeCompteur = 0f;
         }
         else if (isDash)
         {
-            rigidbody2D.velocity = new Vector2(direction * 30f, 5f);
+            rigidbody2D.velocity = new Vector2(direction * 30f,2f);
             jumpTimeCompteur = 0f;
         }
         else if (isJump)
@@ -194,14 +194,14 @@ public class ControllerMove : MonoBehaviour
     #endregion
 
     #region Knockback
-    public void Knockback(float directionDamage)
+    public void Knockback(Vector2 directionDamage)
     {
-        this.directionDamage = directionDamage;
+        vectorKnockback = directionDamage;
         StartCoroutine(CaroutineKnockback());
     }
     IEnumerator CaroutineKnockback()
     {
-        canMove = false;
+        //canMove = false;
         isKnockback = true;
         yield return new WaitForSeconds(0.15f);
         isKnockback = false;
@@ -212,6 +212,8 @@ public class ControllerMove : MonoBehaviour
 
     public ProjectileBehaviour ProjectilePrefab;
     public Transform FireOffset;
+    public Vector2 vectorKnockback = new Vector2(30f, 15f);
+
     public void Fire()
     {
         ProjectileBehaviour pb = Instantiate(ProjectilePrefab, FireOffset.position, new Quaternion());

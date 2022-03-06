@@ -6,16 +6,16 @@ public class ChangeColor : MonoBehaviour
 {
 
     public Color color;
-    private Renderer[] Sprites;
+    private SpriteRenderer[] Sprites;
 
     void Awake()
     {
-        Sprites = GetComponentsInChildren<Renderer>();
+        Sprites = GetComponentsInChildren<SpriteRenderer>();
 
-        foreach (Renderer sprite in Sprites)
+        foreach (SpriteRenderer sprite in Sprites)
         {
             if (!sprite == false)
-                sprite.material.color = color;
+                sprite.color = color;
         }
     }
 }

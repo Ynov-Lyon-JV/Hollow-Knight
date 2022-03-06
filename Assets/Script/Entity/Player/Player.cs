@@ -8,6 +8,21 @@ public class Player : EffectPlayer
     PlayerMove playerMove;
     ControllerSpell controllerSpell;
 
+    protected int bonus;
+
+    public virtual int Bonus
+    {
+        get
+        {
+            return bonus;
+        }
+        set
+        {
+            bonus = value;
+            InterfaceHealth.instance.ChangeBonus(value);
+        }
+    }
+
     public static Player instance;
 
     private void Awake()

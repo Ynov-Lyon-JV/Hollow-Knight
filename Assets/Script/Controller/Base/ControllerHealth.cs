@@ -46,7 +46,6 @@ public class ControllerHealth : MonoBehaviour
 
     public bool isPlayer;
 
-    public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRangeX;
     public float attackRangeY;
@@ -98,7 +97,7 @@ public class ControllerHealth : MonoBehaviour
         timeBtwAttack -= Time.deltaTime;
     }
 
-    public void TakeDamage(int damage, bool particule = true, float directionDamage = 0, bool canProtect = true)
+    public void TakeDamage(int damage, bool particule = false, float directionDamage = 0, bool canProtect = true)
     {
 
 
@@ -116,7 +115,7 @@ public class ControllerHealth : MonoBehaviour
 
             if (directionDamage != 0)
             {
-                entity.controllerMove.Knockback(directionDamage);
+                entity.controllerMove.Knockback(new Vector2(directionDamage * 33f, 15f));
             }
 
             entity.EffectTakeDamage();
@@ -127,19 +126,37 @@ public class ControllerHealth : MonoBehaviour
 
 
 
-    public bool Attack()
+    public bool Attack(Transform attackPos,int isDown = 0)
     {
         if (timeBtwAttack <= 0)
         {
-            Collider2D[] ennemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, whatIsEnemies);
+            bool hit= false;
+            Vector2 zone = new Vector2(attackRangeY, attackRangeX);
+            if(isDown==0)
+                zone = new Vector2(attackRangeX, attackRangeY);
+            Collider2D[] ennemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, zone, 0, whatIsEnemies);
             for (int i = 0; i < ennemiesToDamage.Length; i++)
             {
+                ControllerHealth controllerHealth = ennemiesToDamage[i].GetComponent<ControllerHealth>();
+                if (controllerHealth != null)
+                {
 
-                ennemiesToDamage[i].GetComponent<ControllerHealth>().TakeDamage(damage);
+                    controllerHealth.TakeDamage(damage);
+                    hit = true;
+                }
             }
             timeBtwAttack = startTimeBtwAttack;
 
             SounfEffectsController.PlaySoundEffect(Dico.Get("SOUND_PLAYER_SWORD"), 0.1F);
+            if(hit&& isDown!=-1)
+            {
+                float knockback = Dico.CalculeDirection(transform, attackPos);
+
+                if (isDown == 1)
+                    entity.controllerMove.rigidbody2D.velocity = new Vector2(0, 60f);
+                else
+                    entity.controllerMove.Knockback(new Vector2(-knockback * 8, 0));
+            }
             return true;
         }
         return false;
@@ -156,7 +173,7 @@ public class ControllerHealth : MonoBehaviour
                 float knockback = 0;
                 if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
                 {
-                    knockback = Dico.CalculeDirection(collision.gameObject.transform, transform);
+                    knockback = Dico.CalculeDirection(transform,collision.gameObject.transform);
                 }
                 collision.gameObject.GetComponent<ControllerHealth>().TakeDamage(damage, true, knockback);
                 timeBtwAttack = startTimeBtwAttack;
@@ -167,7 +184,7 @@ public class ControllerHealth : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(attackPos.position, new Vector3(attackRangeX, attackRangeY, 1));
+        Gizmos.DrawWireCube(transform.Find("AnimatorAttack").position, new Vector3(attackRangeY, attackRangeX, 1));
     }
 
 }

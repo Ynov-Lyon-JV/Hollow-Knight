@@ -8,12 +8,12 @@ public class Dico
     //Essayer de ne jamais rename la premiere colone
     private static Dictionary<string, string> Dictionary = new Dictionary<string, string> {
         //ANIM
-        {"ANIM_PLAYER_IDLE", "PlayerD_idle"},
-        {"ANIM_PLAYER_RUN", "PlayerD_run"},
-        {"ANIM_PLAYER_JUMP", "PlayerD_jump"},
-        {"ANIM_PLAYER_LAND", "PlayerD_land"},
+        {"ANIM_PLAYER_IDLE", "willo_idle"},
+        {"ANIM_PLAYER_RUN", "willo_run"},
+        {"ANIM_PLAYER_JUMP", "willo_jump"},
+        {"ANIM_PLAYER_LAND", "willo_fall"},
         {"ANIM_PLAYER_ATTACK", "PlayerD_attack"},
-        {"ANIM_PLAYER_DASH", "PlayerD_dash"},
+        {"ANIM_PLAYER_DASH", "willo_dash"},
         {"ANIM_PLAYER_DASH_EFFECT", "Dash"},
         {"ANIM_TRANSITION_FADEIN", "FadeIn"},
         {"ANIM_TRANSITION_FADEOUT", "FadeOut"},
@@ -23,7 +23,10 @@ public class Dico
         {"BUTTON_DASH", "Button_Dash"},
         {"BUTTON_FIRE", "Button_Fire"},
         {"BUTTON_BOMB", "Button_Bomb"},
+        {"BUTTON_INTERACT", "Button_Interact"},
         {"BUTTON_SPELL", "Button_Spell"},
+        {"BUTTON_SPELLMENU", "Button_SpellMenu"},
+        {"BUTTON_CANCEL", "Button_Cancel"},
         //DIRECTION Entrées
         {"N1","S1"},
         {"N2","S2"},
@@ -60,7 +63,7 @@ public class Dico
     }
 
 
-    public static float CalculeDirection(Transform target, Transform entity)
+    public static float CalculeDirection(Transform entity, Transform target)
     {
         return Math.Sign(target.position.x - entity.position.x);
     }

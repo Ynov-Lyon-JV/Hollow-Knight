@@ -16,7 +16,7 @@ public class Spell : MonoBehaviour
     [NonSerialized]
     public Type type;
     [NonSerialized]
-    public new string name = "SPELL";
+    public new string name = "Spell";
 
     private Player player;
 
