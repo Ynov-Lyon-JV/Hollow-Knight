@@ -2,11 +2,14 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class LoadAndSaveData : MonoBehaviour
 {
     public static LoadAndSaveData instance;
 
+    public float ligthGlobal = 1;
+    public float ligthPlayer = 0;
 
     private void Awake()
     {
@@ -25,6 +28,9 @@ public class LoadAndSaveData : MonoBehaviour
         CinemachineConfiner2D cinemachineConfiner = g.GetComponentInChildren<CinemachineConfiner2D>();
         cinemachineConfiner.m_BoundingShape2D = GameObject.Find("Background").GetComponent<PolygonCollider2D>();
 
+
+        GameObject.Find("Player").GetComponent<Light2D>().intensity = ligthPlayer;
+        GameObject.Find("Global Light 2D").GetComponent<Light2D>().intensity = ligthGlobal;
         StartCoroutine(LoadFadeOut());
     }
     /*

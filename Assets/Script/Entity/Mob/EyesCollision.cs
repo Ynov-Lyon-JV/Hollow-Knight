@@ -18,6 +18,6 @@ public class EyesCollision : Eyes
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position + new Vector3(0, 1), new Vector2(1, mob.controllerMove.feetPos.bounds.size.y));
+        //Gizmos.DrawWireCube(transform.position + new Vector3(0, 1), new Vector2(1, mob.controllerMove.feetPos.bounds.size.y));
     }
 }

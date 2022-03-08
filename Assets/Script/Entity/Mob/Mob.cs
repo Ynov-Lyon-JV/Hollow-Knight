@@ -23,7 +23,7 @@ public class Mob : Entity
         if (!controllerMove.IsGrounded() && timeDirectionLock <= 0)
         {
             Flip();
-            timeDirectionLock = 3; //Permet d'éviter les bugs
+            timeDirectionLock = 5; //Permet d'éviter les bugs
         }
         else if (timeDirectionLock > 0)
         {

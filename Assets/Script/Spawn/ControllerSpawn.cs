@@ -79,7 +79,7 @@ public class ControllerSpawn : MonoBehaviour
         GameObject.Find("UI").GetComponentInChildren<ControllerAnimation>().ChangeAnimationState(Dico.Get("ANIM_TRANSITION_FADEOUT"));
         yield return new WaitForSeconds(0.3f);
         Player.instance.Resume();
-        Player.instance.controllerHealth.timeInvulnerable = Player.instance.controllerHealth.timeInvulnerableStart * 2;
+        Player.instance.controllerHealth.timeInvulnerable = Player.instance.controllerHealth.timeInvulnerableStart * 1.5f;
 
 
 
