@@ -62,6 +62,9 @@ public class ControllerMove : MonoBehaviour
     private float startTimeBtwDash;
     private float timeBtwDash = 0;
 
+    private float startTimeBtwBomb = 3;
+    private float timeBtwBomb = 0;
+
     public float timeGrounded = 0;
     public bool isGroundedLastFrame = false;
     public bool load = false;
@@ -148,6 +151,7 @@ public class ControllerMove : MonoBehaviour
 
         timeGrounded -= Time.deltaTime;
         timeBtwDash -= Time.deltaTime;
+        timeBtwBomb -= Time.deltaTime;
     }
 
 
@@ -231,9 +235,11 @@ public class ControllerMove : MonoBehaviour
     public BombBehaviour BombPrefab;
     public void Bomb()
 	{
-        Vector3 BombPosition = FireOffset.position;
-        BombPosition.x = BombPosition.x - 1;
-        BombBehaviour bb = Instantiate(BombPrefab, FireOffset.position, new Quaternion());
-
+        if (timeBtwBomb < 0) { 
+            Vector3 BombPosition = FireOffset.position;
+            BombPosition.x = BombPosition.x - 1;
+            BombBehaviour bb = Instantiate(BombPrefab, FireOffset.position, new Quaternion());
+            timeBtwBomb = startTimeBtwBomb;
+        }
     }
 }

@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 6049882370273643941}
   - component: {fileID: 6049882370273643940}
   - component: {fileID: 6049882370273643938}
+  - component: {fileID: 2357934377252827197}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -199,7 +200,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6049882370273643942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -292,7 +293,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6049882370273643942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -311,6 +312,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &2357934377252827197
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049882370273643942}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.8}
+  serializedVersion: 2
+  m_Radius: 1.2
 --- !u!1 &6049882370351565225
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +343,7 @@ GameObject:
   - component: {fileID: 6049882370351565393}
   - component: {fileID: 6049882370351565392}
   - component: {fileID: 6049882370351565395}
+  - component: {fileID: 3754377493195679442}
   - component: {fileID: 6049882370351565394}
   - component: {fileID: 6049882370351565397}
   - component: {fileID: 6049882370351565396}
@@ -391,6 +409,7 @@ MonoBehaviour:
   jumpTimeCompteur: 0
   feetPos: {fileID: 0}
   moveIput: {x: 0, y: 0}
+  rigidbody2D: {fileID: 0}
   direction: 0
   entity: {fileID: 0}
   isGrounded: 0
@@ -403,6 +422,8 @@ MonoBehaviour:
   load: 0
   ProjectilePrefab: {fileID: 0}
   FireOffset: {fileID: 0}
+  vectorKnockback: {x: 30, y: 15}
+  BombPrefab: {fileID: 0}
 --- !u!114 &6049882370351565406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +442,6 @@ MonoBehaviour:
   renderer: {fileID: 0}
   bloodEffect: {fileID: 4637752002281614779, guid: 2088683cecb5a3b4385d91f4db09b04f, type: 3}
   isPlayer: 0
-  attackPos: {fileID: 6049882370351565398}
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 8
@@ -519,6 +539,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &3754377493195679442
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049882370351565225}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.8}
+  serializedVersion: 2
+  m_Radius: 1.2
 --- !u!95 &6049882370351565394
 Animator:
   serializedVersion: 3
@@ -545,7 +581,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6049882370351565225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -827,7 +863,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6049882370351565225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

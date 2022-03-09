@@ -11,7 +11,10 @@ public class Mob : Entity
 
     private int timeDirectionLock = 0;
 
-
+    private void Awake()
+    {
+        gDedect = transform.Find("Detect").gameObject;
+    }
     public override void Move()
     {
         MoveBasic();
@@ -44,6 +47,7 @@ public class Mob : Entity
     private float startTimeDetect = 2;
     public float timeDetect = 0;
 
+    private GameObject gDedect;
     private bool detect;
     public virtual bool Detect
     {
@@ -51,7 +55,8 @@ public class Mob : Entity
         set
         {
             detect = value;
-            transform.Find("Detect").gameObject.SetActive(value);
+            if(gDedect)
+            gDedect.SetActive(value);
 
             if (value)
             {

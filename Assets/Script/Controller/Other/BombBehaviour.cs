@@ -24,9 +24,12 @@ public class BombBehaviour : MonoBehaviour
 
 	void Explode()
 	{
+
+        GetComponentInChildren<FadeOut>().canFade = true;
         isExploding = true;
         ParticleSystem ps = GetComponent<ParticleSystem>();
         ps.Play();
+
     }
 
 	private void OnTriggerStay2D(Collider2D collision)
