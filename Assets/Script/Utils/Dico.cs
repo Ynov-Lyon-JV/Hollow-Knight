@@ -43,11 +43,12 @@ public class Dico
         //SOUND
         {"SOUND_PLAYER_JUMP", "hornet_jump"},
         {"SOUND_PLAYER_LANDING", "hornet_ground_land"},
-        {"SOUND_PLAYER_DASH", "hornet_dash"},
+        {"SOUND_PLAYER_DASH", "yaaa"},
         {"SOUND_PLAYER_SWORD", "hornet_sword"},
         {"SOUND_PLAYER_DOMAGE", "hero_damage"},
         {"SOUND_ENEMY_DOMAGE", "enemy_damage"},
         {"SOUND_ENEMY_DEATH", "enemy_death_sword"},
+        {"SOUND_STEP", "singleStep"},
         //SPELL
         {"SPELL_SLIME", "SPELL_SLIME_SHIELD"},
         {"SPELL_TREE", "SPELL_TREE"},

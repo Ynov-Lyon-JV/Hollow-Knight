@@ -103,6 +103,12 @@ public class PlayerMove : MonoBehaviour
             player.controllerMove.Bomb();
         }
 
+        if(player.controllerMove.isGrounded && moveIput.x != 0f)
+		{
+            SounfEffectsController.PlayWalkingSound(Dico.Get("SOUND_STEP"));
+        }
+        
+
         controllerAnimation.ChangeAnimationState(Dico.Get(GetAnimeState()));
     }
 
