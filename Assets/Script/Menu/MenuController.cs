@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
 {
+
     [Header("Volume Settings")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
@@ -19,6 +21,11 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_Text brightnessTextValue = null;
     [SerializeField] private Slider brightnessSlider = null;
     [SerializeField] private float defaultBrightness = 30;
+
+    [Header("Levels To Load")]
+    public string _newGameLevel;
+    private string levelToLoad;
+    [SerializeField] private GameObject noSavedGameDialog = null;
 
     private int _qualityLevel;
     private bool _isFullScreen;
@@ -55,16 +62,15 @@ public class MenuController : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
+    private void Update()
+    {
+    }
+
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-
-    [Header("Levels To Load")]
-    public string _newGameLevel;
-    private string levelToLoad;
-    [SerializeField] private GameObject noSavedGameDialog = null;
 
     public void NewGameDialogYes()
     {
@@ -83,6 +89,7 @@ public class MenuController : MonoBehaviour
             noSavedGameDialog.SetActive(true);
         }
     }
+
 
     public void ExitButton()
     {
