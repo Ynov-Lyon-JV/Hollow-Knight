@@ -98,10 +98,6 @@ public class PlayerMove : MonoBehaviour
         {
             player.controllerMove.Fire();
         }
-        if (Input.GetButtonDown(Dico.Get("BUTTON_BOMB")))
-        {
-            player.controllerMove.Bomb();
-        }
 
         if(player.controllerMove.isGrounded && moveIput.x != 0f)
 		{

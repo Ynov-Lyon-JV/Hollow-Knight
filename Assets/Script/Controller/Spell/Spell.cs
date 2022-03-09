@@ -21,7 +21,7 @@ public class Spell : MonoBehaviour
     private Player player;
 
     [SerializeField]
-    private float startTimeBtwSpell;
+    protected float startTimeBtwSpell;
     protected float timeBtwSpell = 0;
     protected bool isActivate = false;
 
@@ -29,7 +29,7 @@ public class Spell : MonoBehaviour
 
     public int xp;
 
-    private bool IsUnlock = false;
+    private bool IsUnlock = true;
 
     public bool isUnlock
     {

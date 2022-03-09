@@ -8,18 +8,9 @@ public class SpellMushroom : Spell
     private GameObject pet;
     private void Awake()
     {
-        type = Type.Summuner;
-        name = "Spell_Bat";
+        type = Type.Attack;
+        name = "Spell_Mushroom";
 
-        foreach (GameObject gObject in GameObject.FindGameObjectsWithTag("Pet"))
-        {
-            if (gObject.name == "PetBat")
-            {
-                pet = gObject;
-                Clean();
-                return;
-            }
-        }
     }
 
 
@@ -35,5 +26,26 @@ public class SpellMushroom : Spell
     {
         isActivate = false;
         pet.SetActive(false);
+    }
+    private void Update()
+    {
+
+        if (Input.GetButtonDown(Dico.Get("BUTTON_SPELL")))
+        {
+            Bomb();
+        }
+    }
+
+
+    public BombBehaviour BombPrefab;
+    public void Bomb()
+    {
+        if (timeBtwSpell < 0 && isActivate)
+        {
+            Vector3 BombPosition = Player.instance.transform.position;
+            BombPosition.x = BombPosition.x - 1;
+            BombBehaviour bb = Instantiate(BombPrefab, BombPosition, new Quaternion());
+            timeBtwSpell = startTimeBtwSpell;
+        }
     }
 }

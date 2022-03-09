@@ -1381,9 +1381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b75f0adc0d6724db39b5ec407a0d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwSpell: 0
+  startTimeBtwSpell: 3
   spriteIcon: {fileID: -8677677791991052403, guid: 39b67df2b8619f048bcdfe403e985c37, type: 3}
   xp: 0
+  BombPrefab: {fileID: 2741895704890682524, guid: 52d819352f6f11d4ca9b8c8896bd1080, type: 3}
 --- !u!1 &810444149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1551,6 @@ Transform:
   m_Children:
   - {fileID: 1881855878}
   - {fileID: 1348611233}
-  - {fileID: 946944437}
   - {fileID: 1188647024}
   - {fileID: 1897579257}
   - {fileID: 1332646530}
@@ -1759,11 +1759,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946944436}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -463.15, y: 45.34, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -120.722206, y: 41.98571, z: 1000}
+  m_LocalScale: {x: 0.69444436, y: 0.7142857, z: 1}
   m_Children: []
-  m_Father: {fileID: 827583052}
-  m_RootOrder: 2
+  m_Father: {fileID: 1681822381}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &946944438
 AudioSource:
@@ -2294,7 +2294,7 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 904175721}
   m_Father: {fileID: 827583052}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206714683
 GameObject:
@@ -2687,7 +2687,7 @@ RectTransform:
   - {fileID: 495396186}
   - {fileID: 671931122}
   m_Father: {fileID: 827583052}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3396,7 +3396,6 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 0}
   FireOffset: {fileID: 0}
   vectorKnockback: {x: 30, y: 15}
-  BombPrefab: {fileID: 0}
 --- !u!1 &1566050248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,6 +3757,7 @@ Transform:
   - {fileID: 255218817}
   - {fileID: 1658492398}
   - {fileID: 796333159}
+  - {fileID: 946944437}
   m_Father: {fileID: 1881855878}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4516,7 +4516,6 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 2855481001060298314, guid: 681a1e44430962345947b5152aba9a75, type: 3}
   FireOffset: {fileID: 1941866107}
   vectorKnockback: {x: 30, y: 15}
-  BombPrefab: {fileID: 2741895704890682524, guid: 52d819352f6f11d4ca9b8c8896bd1080, type: 3}
 --- !u!61 &1881855885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4715,7 +4714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 827583052}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1897579258
 MonoBehaviour:
@@ -4956,7 +4955,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 827583052}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2028098201
 MonoBehaviour:
