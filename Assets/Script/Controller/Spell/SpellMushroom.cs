@@ -14,18 +14,10 @@ public class SpellMushroom : Spell
     }
 
 
-    public override void InitSpell()
-    {
-        base.InitSpell();
-        pet.SetActive(true);
-        pet.transform.position = Player.instance.transform.Find("Head").transform.position;
-    }
-
 
     public override void Clean()
     {
         isActivate = false;
-        pet.SetActive(false);
     }
     private void Update()
     {
@@ -34,13 +26,14 @@ public class SpellMushroom : Spell
         {
             Bomb();
         }
+        timeBtwSpell -= Time.deltaTime;
     }
 
 
     public BombBehaviour BombPrefab;
     public void Bomb()
     {
-        if (timeBtwSpell < 0 && isActivate)
+        if (timeBtwSpell <= 0 && isActivate)
         {
             Vector3 BombPosition = Player.instance.transform.position;
             BombPosition.x = BombPosition.x - 1;

@@ -9,7 +9,7 @@ public class Lanterne : Entity
     private void Awake()
     {
         name = SceneManager.GetActiveScene().name + "_" + transform.name;
-        if (ListeLant.instance.Verif(name))
+        if (name!=null && ListeLant.instance.Verif(name))
             Delete();
     }
     public override void Destroy()

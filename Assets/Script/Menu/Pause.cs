@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    public GameObject spellBook;
 
     public static bool gameIsPaused = false;
 
@@ -22,21 +21,12 @@ public class Pause : MonoBehaviour
             return;
         }
         instance = this;
-        spellBook = GameObject.Find("UI_Spells");
-        spellBook.SetActive(false);
     }
     void Update()
     {
         if (Input.GetButtonDown(Dico.Get("BUTTON_CANCEL")))
         {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Paused();
-            }
+            ButtonPause();
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -47,23 +37,41 @@ public class Pause : MonoBehaviour
         }
         if (Input.GetButtonDown(Dico.Get("BUTTON_SPELLMENU")))
         {
-            if (spellBook.activeSelf)
+            if (ControllerSpell.instance.UI_Spells.activeSelf)
             {
                 Player.instance.Resume();
-                spellBook.SetActive(false);
+                ControllerSpell.instance.UI_Spells.SetActive(false);
             }
             else
             {
-                spellBook.SetActive(true);
+                ControllerSpell.instance.UI_Spells.SetActive(true);
                 Player.instance.Pause();
             }
         }
     }
 
+    public void ButtonPause()
+    {
+        if (gameIsPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Paused();
+        }
+    }
+
+
+    public void ButtonExit()
+    {
+        Application.Quit();
+    }
+
     public void Paused()
     {
         Player.instance.Pause();
-        //pauseMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused = true;
     }
@@ -71,7 +79,7 @@ public class Pause : MonoBehaviour
     public void Resume()
     {
         Player.instance.Resume();
-        //pauseMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;
     }

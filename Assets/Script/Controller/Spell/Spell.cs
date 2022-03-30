@@ -29,7 +29,7 @@ public class Spell : MonoBehaviour
 
     public int xp;
 
-    private bool IsUnlock = true;
+    private bool IsUnlock = false;
 
     public bool isUnlock
     {
@@ -40,10 +40,6 @@ public class Spell : MonoBehaviour
         set
         {
             IsUnlock = value;
-            if (value)
-            {
-                ControllerSpell.instance.AfficheUI();
-            }
         }
     }
 
@@ -89,7 +85,7 @@ public class Spell : MonoBehaviour
     }
     public virtual void InitSpell()
     {
-        timeBtwSpell = startTimeBtwSpell;
+        timeBtwSpell = 0;
         isActivate = true;
     }
     public virtual bool UseSpell(int damage = 0)

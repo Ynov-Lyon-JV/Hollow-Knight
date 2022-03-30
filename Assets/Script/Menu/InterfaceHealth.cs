@@ -46,6 +46,6 @@ public class InterfaceHealth : MonoBehaviour
 
     public void ChangeBonus(int bonus)
     {
-        text.text = bonus.ToString() + "/10";
+        text.text = bonus.ToString() + "/5";
     }
 }

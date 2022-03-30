@@ -24,6 +24,13 @@ public class LoadAndSaveData : MonoBehaviour
     void Start()
     {
         ControllerSpawn.instance.Spawn();
+        GameObject UI_SPELL = GameObject.Find("UI_Spells");
+        if (UI_SPELL) {
+        ControllerSpell.instance.UI_Spells = UI_SPELL;
+
+        ControllerSpell.instance.AfficheUI();
+            UI_SPELL.SetActive(false);
+        }
         GameObject g = GameObject.Find("Cameras");
         CinemachineConfiner2D cinemachineConfiner = g.GetComponentInChildren<CinemachineConfiner2D>();
         cinemachineConfiner.m_BoundingShape2D = GameObject.Find("Background").GetComponent<PolygonCollider2D>();

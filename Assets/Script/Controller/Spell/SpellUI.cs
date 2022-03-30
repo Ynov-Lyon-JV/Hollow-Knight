@@ -22,7 +22,7 @@ public class SpellUI : MonoBehaviour
         {
             if (!spell.isUnlock)
                 continue;
-            Instantiate(Resources.Load<GameObject>("Player/Spells/Spell"), transform.position, new Quaternion(),GameObject.Find("Ui_Spells").transform);
+            Instantiate(Resources.Load<GameObject>("Player/Spells/Spell"), transform.position, new Quaternion(),GameObject.Find("UI_Spells").transform);
 
         }
     }

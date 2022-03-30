@@ -30,7 +30,6 @@ public class ControllerSpell : MonoBehaviour
             spells.Add(spell);
         }
 
-        AfficheUI();
     }
 
     internal void StopSpell(string nameSpell)
@@ -84,6 +83,7 @@ public class ControllerSpell : MonoBehaviour
         if (spell.xp == 1)
         {
             spell.isUnlock = true;
+            AfficheUI();
         }
     }
 

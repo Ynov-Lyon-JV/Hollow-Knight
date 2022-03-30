@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SpellSlime : Spell
 {
-    private new Renderer renderer;
+    private new SpriteRenderer renderer;
     private void Awake()
     {
         type = Type.Defense;
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<SpriteRenderer>();
         name = "Spell_Slime";
 
         Clean();
