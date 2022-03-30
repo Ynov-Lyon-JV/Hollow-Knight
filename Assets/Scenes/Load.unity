@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwSpell: 15
-  spriteIcon: {fileID: -1214084800351729135, guid: 33435386fff05e54ab89e130b46678db, type: 3}
+  spriteIcon: {fileID: 7662739328511360509, guid: 2762263754e93f641affdecd455a2dcc, type: 3}
   xp: 0
 --- !u!212 &255218819
 SpriteRenderer:
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwSpell: 3
-  spriteIcon: {fileID: -8677677791991052403, guid: 39b67df2b8619f048bcdfe403e985c37, type: 3}
+  spriteIcon: {fileID: 8400771193049994875, guid: 35f1380855621d947a3995fcfad63971, type: 3}
   xp: 0
   BombPrefab: {fileID: 2741895704890682524, guid: 52d819352f6f11d4ca9b8c8896bd1080, type: 3}
 --- !u!1 &810444149
@@ -3632,7 +3632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwSpell: 0
-  spriteIcon: {fileID: -2621437539321483401, guid: 6cd0d232f89d7db449a23a57e23e65ea, type: 3}
+  spriteIcon: {fileID: 6423731466171015572, guid: b1e6224e15a42fc47bf0cc294b736cc1, type: 3}
   xp: 0
 --- !u!1 &1681822380
 GameObject:
