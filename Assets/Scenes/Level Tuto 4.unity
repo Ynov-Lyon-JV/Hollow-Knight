@@ -1402,6 +1402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1116671917}
     m_Modifications:
+    - target: {fileID: 5488902980985182316, guid: d3298e16a3ed3ab418ab0e73398880e6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5488902980985182318, guid: d3298e16a3ed3ab418ab0e73398880e6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -47941,7 +47945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 810795014869783934, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20.743902
+      value: 24.000694
       objectReference: {fileID: 0}
     - target: {fileID: 810795014869783934, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_LocalScale.y
@@ -47949,11 +47953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 810795014869783934, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.18
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 810795014869783934, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.487
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 810795015144750550, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48021,7 +48025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 810795016004404964, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_text
-      value: Les 5 flammes rouges ???
+      value: Tu as les 5 flammes rouges ???
       objectReference: {fileID: 0}
     - target: {fileID: 810795016004404964, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_fontSize
@@ -48081,11 +48085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 810795016004404967, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.38
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 810795016004404967, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 6.23
+      value: 5.79
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
@@ -52725,7 +52729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 810795015459569149, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 810795015459569149, guid: 9f5b9c9d54110fa48b269266ab34790a, type: 3}
       propertyPath: m_LocalPosition.x
